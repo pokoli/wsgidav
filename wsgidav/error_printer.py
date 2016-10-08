@@ -1,4 +1,5 @@
-# (c) 2009-2016 Martin Wendt and contributors; see WsgiDAV https://github.com/mar10/wsgidav
+# (c) 2009-2016 Martin Wendt and contributors;
+# see WsgiDAV https://github.com/mar10/wsgidav
 # Original PyFileServer (c) 2005 Ho Chun Wei.
 # Licensed under the MIT license:
 # http://www.opensource.org/licenses/mit-license.php
@@ -24,9 +25,9 @@ __docformat__ = "reStructuredText"
 
 _logger = util.getModuleLogger(__name__)
 
-#=========================================================================
+# =========================================================================
 # ErrorPrinter
-#=========================================================================
+# =========================================================================
 
 
 class ErrorPrinter(BaseMiddleware):
@@ -41,9 +42,10 @@ class ErrorPrinter(BaseMiddleware):
 
         try:
             try:
-                # request_server app may be a generator (for example the GET handler)
-                # So we must iterate - not return self._application(..)!
-                # Otherwise the we could not catch exceptions here.
+                # request_server app may be a generator (for example the GET
+                # handler). So we must iterate - not return
+                # self._application(..)! Otherwise the we could not catch
+                # exceptions here.
                 response_started = False
                 app_iter = self._application(environ, sub_app_start_response)
                 for v in app_iter:
@@ -90,12 +92,16 @@ class ErrorPrinter(BaseMiddleware):
             # Dump internal errors to console
             if e.value == HTTP_INTERNAL_ERROR:
                 print(
-                    "ErrorPrinter: caught HTTPRequestException(HTTP_INTERNAL_ERROR)", file=sys.stdout)
+                    "ErrorPrinter: "
+                    "caught HTTPRequestException(HTTP_INTERNAL_ERROR)",
+                    file=sys.stdout)
                 traceback.print_exc(10, environ.get(
                     "wsgi.errors") or sys.stdout)
                 print("e.srcexception:\n%s" % e.srcexception, file=sys.stdout)
             elif e.value in (HTTP_NOT_MODIFIED, HTTP_NO_CONTENT):
-                #                util.log("ErrorPrinter: forcing empty error response for %s" % e.value)
+                # util.log(
+                # "ErrorPrinter: forcing empty error response for %s" %
+                #   e.value)
                 # See paste.lint: these code don't have content
                 start_response(status, [("Content-Length", "0"),
                                         ("Date", util.getRfc1123Time()),

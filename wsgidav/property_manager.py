@@ -1,4 +1,5 @@
-# (c) 2009-2016 Martin Wendt and contributors; see WsgiDAV https://github.com/mar10/wsgidav
+# (c) 2009-2016 Martin Wendt and contributors;
+# see WsgiDAV https://github.com/mar10/wsgidav
 # Original PyFileServer (c) 2005 Ho Chun Wei.
 # Licensed under the MIT license:
 # http://www.opensource.org/licenses/mit-license.php
@@ -30,12 +31,12 @@ from wsgidav.rw_lock import ReadWriteLock
 from wsgidav import util
 
 # TODO: comment's from Ian Bicking (2005)
-#@@: Use of shelve means this is only really useful in a threaded environment.
+# @: Use of shelve means this is only really useful in a threaded environment.
 #    And if you have just a single-process threaded environment, you could get
-#    nearly the same effect with a dictionary of threading.Lock() objects.  Of course,
-#    it would be better to move off shelve anyway, probably to a system with
-#    a directory of per-file locks, using the file locking primitives (which,
-#    sadly, are not quite portable).
+#    nearly the same effect with a dictionary of threading.Lock() objects.
+#    Of course, it would be better to move off shelve anyway, probably to a
+#    system with a directory of per-file locks, using the file locking
+#    primitives (which, sadly, are not quite portable).
 # @@: It would probably be easy to store the properties as pickle objects
 # in a parallel directory structure to the files you are describing.
 # Pickle is expedient, but later you could use something more readable
@@ -46,15 +47,16 @@ __docformat__ = "reStructuredText"
 _logger = util.getModuleLogger(__name__)
 
 
-#=========================================================================
+# =========================================================================
 # PropertyManager
-#=========================================================================
+# =========================================================================
 class PropertyManager(object):
     """
     An in-memory property manager implementation using a dictionary.
 
     This is obviously not persistent, but should be enough in some cases.
-    For a persistent implementation, see property_manager.ShelvePropertyManager().
+    For a persistent implementation, see
+    property_manager.ShelvePropertyManager().
     """
 
     def __init__(self):
@@ -101,7 +103,7 @@ class PropertyManager(object):
 #                print "  -> %s" % self._dict[k]
 #            self._dump()
             for k, v in self._dict.items():
-                _ = "%s, %s" % (k, v)
+                "%s, %s" % (k, v)
 #            _logger.debug("%s checks ok %s" % (self.__class__.__name__, msg))
             return True
         except Exception:
@@ -168,7 +170,8 @@ class PropertyManager(object):
             self._lock.release()
 
     def writeProperty(self, normurl, propname, propertyvalue, dryRun=False):
-        #        self._log("writeProperty(%s, %s, dryRun=%s):\n\t%s" % (normurl, propname, dryRun, propertyvalue))
+        # self._log("writeProperty(%s, %s, dryRun=%s):\n\t%s" %
+        #     (normurl, propname, dryRun, propertyvalue))
         assert normurl and normurl.startswith("/")
         assert propname  # and propname.startswith("{")
         assert propertyvalue is not None
@@ -197,7 +200,8 @@ class PropertyManager(object):
 
     def removeProperty(self, normurl, propname, dryRun=False):
         """
-        Specifying the removal of a property that does not exist is NOT an error.
+        Specifying the removal of a property that does not exist is NOT an
+        error.
         """
         _logger.debug("removeProperty(%s, %s, dryRun=%s)" %
                       (normurl, propname, dryRun))
@@ -277,9 +281,9 @@ class PropertyManager(object):
             self._lock.release()
 
 
-#=========================================================================
+# =========================================================================
 # ShelvePropertyManager
-#=========================================================================
+# =========================================================================
 
 class ShelvePropertyManager(PropertyManager):
     """

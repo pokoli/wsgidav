@@ -1,0 +1,731 @@
+./wsgidav/interfaces/propertymanagerinterface.py:17:80: E501 line too long (82 > 79 characters)
+./wsgidav/interfaces/propertymanagerinterface.py:24:80: E501 line too long (83 > 79 characters)
+./wsgidav/interfaces/propertymanagerinterface.py:30:80: E501 line too long (80 > 79 characters)
+./wsgidav/interfaces/propertymanagerinterface.py:37:80: E501 line too long (80 > 79 characters)
+./wsgidav/interfaces/domaincontrollerinterface.py:17:80: E501 line too long (86 > 79 characters)
+./wsgidav/interfaces/domaincontrollerinterface.py:29:80: E501 line too long (89 > 79 characters)
+./wsgidav/interfaces/domaincontrollerinterface.py:30:80: E501 line too long (98 > 79 characters)
+./wsgidav/interfaces/domaincontrollerinterface.py:31:80: E501 line too long (90 > 79 characters)
+./wsgidav/interfaces/lockmanagerinterface.py:16:80: E501 line too long (82 > 79 characters)
+./wsgidav/server/run_server.py:13:80: E501 line too long (82 > 79 characters)
+./wsgidav/server/run_server.py:53:80: E501 line too long (93 > 79 characters)
+./wsgidav/server/run_server.py:100:80: E501 line too long (83 > 79 characters)
+./wsgidav/server/run_server.py:107:40: E261 at least two spaces before inline comment
+./wsgidav/server/run_server.py:110:80: E501 line too long (173 > 79 characters)
+./wsgidav/server/run_server.py:113:80: E501 line too long (85 > 79 characters)
+./wsgidav/server/run_server.py:115:80: E501 line too long (113 > 79 characters)
+./wsgidav/server/run_server.py:118:80: E501 line too long (93 > 79 characters)
+./wsgidav/server/run_server.py:121:80: E501 line too long (94 > 79 characters)
+./wsgidav/server/run_server.py:124:80: E501 line too long (86 > 79 characters)
+./wsgidav/server/run_server.py:128:80: E501 line too long (107 > 79 characters)
+./wsgidav/server/run_server.py:131:80: E501 line too long (83 > 79 characters)
+./wsgidav/server/run_server.py:133:80: E501 line too long (81 > 79 characters)
+./wsgidav/server/run_server.py:137:80: E501 line too long (133 > 79 characters)
+./wsgidav/server/run_server.py:144:5: E303 too many blank lines (2)
+./wsgidav/server/run_server.py:171:80: E501 line too long (81 > 79 characters)
+./wsgidav/server/run_server.py:174:80: E501 line too long (94 > 79 characters)
+./wsgidav/server/run_server.py:189:80: E501 line too long (82 > 79 characters)
+./wsgidav/server/run_server.py:203:1: E115 expected an indented block (comment)
+./wsgidav/server/run_server.py:204:1: E115 expected an indented block (comment)
+./wsgidav/server/run_server.py:205:80: E501 line too long (104 > 79 characters)
+./wsgidav/server/run_server.py:205:85: E261 at least two spaces before inline comment
+./wsgidav/server/run_server.py:205:86: E262 inline comment should start with '# '
+./wsgidav/server/run_server.py:209:80: E501 line too long (110 > 79 characters)
+./wsgidav/server/run_server.py:210:80: E501 line too long (113 > 79 characters)
+./wsgidav/server/run_server.py:217:80: E501 line too long (91 > 79 characters)
+./wsgidav/server/run_server.py:261:80: E501 line too long (136 > 79 characters)
+./wsgidav/server/run_server.py:266:80: E501 line too long (84 > 79 characters)
+./wsgidav/server/run_server.py:268:80: E501 line too long (124 > 79 characters)
+./wsgidav/server/run_server.py:272:37: E262 inline comment should start with '# '
+./wsgidav/server/run_server.py:308:9: E301 expected 1 blank line, found 0
+./wsgidav/server/run_server.py:318:9: E301 expected 1 blank line, found 0
+./wsgidav/server/run_server.py:326:80: E501 line too long (87 > 79 characters)
+./wsgidav/server/run_server.py:358:80: E501 line too long (82 > 79 characters)
+./wsgidav/server/run_server.py:362:80: E501 line too long (126 > 79 characters)
+./wsgidav/server/run_server.py:369:80: E501 line too long (87 > 79 characters)
+./wsgidav/server/run_server.py:421:80: E501 line too long (99 > 79 characters)
+./wsgidav/server/run_server.py:425:80: E501 line too long (82 > 79 characters)
+./wsgidav/server/run_server.py:440:80: E501 line too long (84 > 79 characters)
+./wsgidav/server/run_server.py:442:80: E501 line too long (82 > 79 characters)
+./wsgidav/server/run_server.py:453:1: E303 too many blank lines (4)
+./wsgidav/server/run_server.py:472:80: E501 line too long (85 > 79 characters)
+./wsgidav/server/run_server.py:478:1: E303 too many blank lines (3)
+./wsgidav/server/ext_wsgiutils_server.py:1:80: E501 line too long (91 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:3:80: E501 line too long (84 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:9:80: E501 line too long (94 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:11:80: E501 line too long (109 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:28:80: E501 line too long (88 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:46:80: E501 line too long (83 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:49:80: E501 line too long (99 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:50:80: E501 line too long (100 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:51:80: E501 line too long (96 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:58:1: E402 module level import not at top of file
+./wsgidav/server/ext_wsgiutils_server.py:59:1: E402 module level import not at top of file
+./wsgidav/server/ext_wsgiutils_server.py:60:1: E402 module level import not at top of file
+./wsgidav/server/ext_wsgiutils_server.py:61:1: E402 module level import not at top of file
+./wsgidav/server/ext_wsgiutils_server.py:62:1: E402 module level import not at top of file
+./wsgidav/server/ext_wsgiutils_server.py:63:1: E402 module level import not at top of file
+./wsgidav/server/ext_wsgiutils_server.py:80:1: E402 module level import not at top of file
+./wsgidav/server/ext_wsgiutils_server.py:81:1: E402 module level import not at top of file
+./wsgidav/server/ext_wsgiutils_server.py:82:1: E402 module level import not at top of file
+./wsgidav/server/ext_wsgiutils_server.py:87:80: E501 line too long (93 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:102:1: E302 expected 2 blank lines, found 1
+./wsgidav/server/ext_wsgiutils_server.py:117:20: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:121:20: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:125:15: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:127:80: E501 line too long (114 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:127:80: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:128:80: E501 line too long (103 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:131:32: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:132:80: E501 line too long (88 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:133:32: E211 whitespace before '['
+./wsgidav/server/ext_wsgiutils_server.py:133:37: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:134:24: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:135:48: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:137:37: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:145:36: E231 missing whitespace after ','
+./wsgidav/server/ext_wsgiutils_server.py:146:34: E231 missing whitespace after ','
+./wsgidav/server/ext_wsgiutils_server.py:151:55: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:153:28: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:155:24: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:158:21: E225 missing whitespace around operator
+./wsgidav/server/ext_wsgiutils_server.py:158:80: E501 line too long (86 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:163:24: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:166:19: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:167:80: E501 line too long (104 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:170:17: E261 at least two spaces before inline comment
+./wsgidav/server/ext_wsgiutils_server.py:192:20: E211 whitespace before '['
+./wsgidav/server/ext_wsgiutils_server.py:192:52: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:192:80: E501 line too long (83 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:201:33: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:216:26: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:218:80: E501 line too long (91 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:222:80: E501 line too long (82 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:224:1: E115 expected an indented block (comment)
+./wsgidav/server/ext_wsgiutils_server.py:228:26: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:228:80: E501 line too long (83 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:229:80: E501 line too long (102 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:231:28: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:231:80: E501 line too long (85 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:236:22: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:240:32: E211 whitespace before '['
+./wsgidav/server/ext_wsgiutils_server.py:240:46: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:241:31: E211 whitespace before '['
+./wsgidav/server/ext_wsgiutils_server.py:241:44: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:242:80: E501 line too long (85 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:243:31: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:245:33: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:250:80: E501 line too long (106 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:251:80: E501 line too long (80 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:286:18: E226 missing whitespace around arithmetic operator
+./wsgidav/server/ext_wsgiutils_server.py:287:80: E501 line too long (146 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:290:18: E226 missing whitespace around arithmetic operator
+./wsgidav/server/ext_wsgiutils_server.py:295:5: E303 too many blank lines (2)
+./wsgidav/server/ext_wsgiutils_server.py:297:80: E501 line too long (95 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:298:80: E501 line too long (85 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:304:1: E115 expected an indented block (comment)
+./wsgidav/server/ext_wsgiutils_server.py:325:80: E501 line too long (80 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:331:5: E303 too many blank lines (2)
+./wsgidav/server/ext_wsgiutils_server.py:346:5: E303 too many blank lines (2)
+./wsgidav/server/ext_wsgiutils_server.py:346:17: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:347:43: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:350:27: E211 whitespace before '('
+./wsgidav/server/ext_wsgiutils_server.py:364:80: E501 line too long (94 > 79 characters)
+./wsgidav/server/ext_wsgiutils_server.py:365:80: E501 line too long (98 > 79 characters)
+./wsgidav/server/server_sample.py:1:80: E501 line too long (91 > 79 characters)
+./wsgidav/server/server_sample.py:3:80: E501 line too long (84 > 79 characters)
+./wsgidav/server/server_sample.py:14:1: E302 expected 2 blank lines, found 1
+./wsgidav/server/server_sample.py:26:80: E501 line too long (98 > 79 characters)
+./wsgidav/server/server_sample.py:36:80: E501 line too long (80 > 79 characters)
+./wsgidav/server/run_reloading_server.py:1:80: E501 line too long (91 > 79 characters)
+./wsgidav/server/run_reloading_server.py:2:80: E501 line too long (84 > 79 characters)
+./wsgidav/server/run_reloading_server.py:13:1: E302 expected 2 blank lines, found 1
+./wsgidav/server/run_reloading_server.py:15:8: E713 test for membership should be 'not in'
+./wsgidav/server/run_reloading_server.py:27:80: E501 line too long (109 > 79 characters)
+./wsgidav/addons/mongo_property_manager.py:1:80: E501 line too long (91 > 79 characters)
+./wsgidav/addons/mongo_property_manager.py:2:80: E501 line too long (84 > 79 characters)
+./wsgidav/addons/mongo_property_manager.py:38:1: E266 too many leading '#' for block comment
+./wsgidav/addons/mongo_property_manager.py:42:1: E302 expected 2 blank lines, found 1
+./wsgidav/addons/mongo_property_manager.py:44:12: E713 test for membership should be 'not in'
+./wsgidav/addons/mongo_property_manager.py:47:1: E302 expected 2 blank lines, found 1
+./wsgidav/addons/mongo_property_manager.py:52:1: E265 block comment should start with '# '
+./wsgidav/addons/mongo_property_manager.py:52:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/mongo_property_manager.py:54:1: E265 block comment should start with '# '
+./wsgidav/addons/mongo_property_manager.py:54:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/mongo_property_manager.py:74:80: E501 line too long (98 > 79 characters)
+./wsgidav/addons/mongo_property_manager.py:78:9: F841 local variable '_res' is assigned to but never used
+./wsgidav/addons/mongo_property_manager.py:103:20: E713 test for membership should be 'not in'
+./wsgidav/addons/mongo_property_manager.py:119:80: E501 line too long (87 > 79 characters)
+./wsgidav/addons/mongo_property_manager.py:121:80: E501 line too long (109 > 79 characters)
+./wsgidav/addons/mongo_property_manager.py:136:80: E501 line too long (88 > 79 characters)
+./wsgidav/addons/mongo_property_manager.py:141:80: E501 line too long (83 > 79 characters)
+./wsgidav/addons/mongo_property_manager.py:157:80: E501 line too long (94 > 79 characters)
+./wsgidav/addons/mongo_property_manager.py:164:80: E501 line too long (85 > 79 characters)
+./wsgidav/addons/mongo_property_manager.py:174:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/mongo_property_manager.py:182:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:1:80: E501 line too long (91 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:3:80: E501 line too long (84 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:29:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:33:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:34:80: E501 line too long (81 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:43:80: E501 line too long (83 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:47:80: E501 line too long (87 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:50:80: E501 line too long (82 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:51:80: E501 line too long (83 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:55:80: E501 line too long (82 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:68:17: E262 inline comment should start with '# '
+./wsgidav/addons/mysql_dav_provider.py:91:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:96:80: E501 line too long (87 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:108:30: E261 at least two spaces before inline comment
+./wsgidav/addons/mysql_dav_provider.py:119:80: E501 line too long (87 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:137:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:140:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:148:5: E301 expected 1 blank line, found 0
+./wsgidav/addons/mysql_dav_provider.py:150:5: E301 expected 1 blank line, found 0
+./wsgidav/addons/mysql_dav_provider.py:152:5: E301 expected 1 blank line, found 0
+./wsgidav/addons/mysql_dav_provider.py:154:5: E301 expected 1 blank line, found 0
+./wsgidav/addons/mysql_dav_provider.py:156:5: E301 expected 1 blank line, found 0
+./wsgidav/addons/mysql_dav_provider.py:158:5: E301 expected 1 blank line, found 0
+./wsgidav/addons/mysql_dav_provider.py:174:80: E501 line too long (86 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:180:80: E501 line too long (81 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:183:80: E501 line too long (90 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:187:80: E501 line too long (99 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:195:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:206:80: E501 line too long (85 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:213:37: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:214:31: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:214:80: E501 line too long (87 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:215:45: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:218:29: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:220:80: E501 line too long (84 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:225:9: E265 block comment should start with '# '
+./wsgidav/addons/mysql_dav_provider.py:226:9: E265 block comment should start with '# '
+./wsgidav/addons/mysql_dav_provider.py:226:80: E501 line too long (81 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:227:9: E265 block comment should start with '# '
+./wsgidav/addons/mysql_dav_provider.py:227:80: E501 line too long (81 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:232:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:235:80: E501 line too long (93 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:240:80: E501 line too long (81 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:252:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:261:80: E501 line too long (81 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:272:80: E501 line too long (98 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:276:80: E501 line too long (84 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:280:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:288:1: E265 block comment should start with '# '
+./wsgidav/addons/mysql_dav_provider.py:288:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:290:1: E265 block comment should start with '# '
+./wsgidav/addons/mysql_dav_provider.py:290:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:291:1: E302 expected 2 blank lines, found 1
+./wsgidav/addons/mysql_dav_provider.py:302:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:303:80: E501 line too long (115 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:306:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:315:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:323:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:325:29: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:326:23: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:327:37: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:330:21: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:334:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:337:9: E265 block comment should start with '# '
+./wsgidav/addons/mysql_dav_provider.py:337:80: E501 line too long (87 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:359:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:362:29: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:363:23: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:364:37: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:371:33: E261 at least two spaces before inline comment
+./wsgidav/addons/mysql_dav_provider.py:371:34: E262 inline comment should start with '# '
+./wsgidav/addons/mysql_dav_provider.py:372:21: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:376:29: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:378:80: E501 line too long (134 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:380:80: E501 line too long (141 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:381:30: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:389:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:389:80: E501 line too long (81 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:392:29: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:393:23: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:394:37: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:401:32: E261 at least two spaces before inline comment
+./wsgidav/addons/mysql_dav_provider.py:401:33: E262 inline comment should start with '# '
+./wsgidav/addons/mysql_dav_provider.py:402:21: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:406:29: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:408:80: E501 line too long (137 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:410:80: E501 line too long (144 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:411:30: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:415:15: F821 undefined name 'to_native'
+./wsgidav/addons/mysql_dav_provider.py:420:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:424:29: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:425:23: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:426:37: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:433:32: E261 at least two spaces before inline comment
+./wsgidav/addons/mysql_dav_provider.py:433:33: E262 inline comment should start with '# '
+./wsgidav/addons/mysql_dav_provider.py:434:21: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:438:29: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:440:80: E501 line too long (120 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:442:80: E501 line too long (127 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:443:30: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:448:30: F821 undefined name 'to_native'
+./wsgidav/addons/mysql_dav_provider.py:453:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:455:29: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:456:23: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:457:37: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:465:32: E261 at least two spaces before inline comment
+./wsgidav/addons/mysql_dav_provider.py:465:33: E262 inline comment should start with '# '
+./wsgidav/addons/mysql_dav_provider.py:466:21: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:470:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:472:29: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:473:80: E501 line too long (87 > 79 characters)
+./wsgidav/addons/mysql_dav_provider.py:474:37: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:476:28: F821 undefined name 'to_native'
+./wsgidav/addons/mysql_dav_provider.py:481:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:483:29: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:484:23: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:485:37: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:488:21: E211 whitespace before '('
+./wsgidav/addons/mysql_dav_provider.py:492:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:508:5: E303 too many blank lines (2)
+./wsgidav/addons/mysql_dav_provider.py:529:5: E303 too many blank lines (2)
+./wsgidav/addons/hg_dav_provider.py:2:80: E501 line too long (91 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:3:80: E501 line too long (84 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:48:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:56:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:92:5: E265 block comment should start with '# '
+./wsgidav/addons/hg_dav_provider.py:94:80: E501 line too long (94 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:104:1: E265 block comment should start with '# '
+./wsgidav/addons/hg_dav_provider.py:104:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:106:1: E265 block comment should start with '# '
+./wsgidav/addons/hg_dav_provider.py:106:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:114:16: E713 test for membership should be 'not in'
+./wsgidav/addons/hg_dav_provider.py:115:16: E713 test for membership should be 'not in'
+./wsgidav/addons/hg_dav_provider.py:126:80: E501 line too long (129 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:127:80: E501 line too long (117 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:164:1: E115 expected an indented block (comment)
+./wsgidav/addons/hg_dav_provider.py:165:1: E115 expected an indented block (comment)
+./wsgidav/addons/hg_dav_provider.py:166:20: E261 at least two spaces before inline comment
+./wsgidav/addons/hg_dav_provider.py:174:51: F821 undefined name 'to_native'
+./wsgidav/addons/hg_dav_provider.py:174:80: E501 line too long (120 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:187:50: F821 undefined name 'to_native'
+./wsgidav/addons/hg_dav_provider.py:189:24: W601 .has_key() is deprecated, use 'in'
+./wsgidav/addons/hg_dav_provider.py:199:5: E301 expected 1 blank line, found 0
+./wsgidav/addons/hg_dav_provider.py:232:20: F821 undefined name 'to_native'
+./wsgidav/addons/hg_dav_provider.py:236:20: F821 undefined name 'to_native'
+./wsgidav/addons/hg_dav_provider.py:238:20: F821 undefined name 'to_native'
+./wsgidav/addons/hg_dav_provider.py:240:20: F821 undefined name 'to_native'
+./wsgidav/addons/hg_dav_provider.py:274:80: E501 line too long (91 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:275:48: E226 missing whitespace around arithmetic operator
+./wsgidav/addons/hg_dav_provider.py:275:52: E226 missing whitespace around arithmetic operator
+./wsgidav/addons/hg_dav_provider.py:276:67: E226 missing whitespace around arithmetic operator
+./wsgidav/addons/hg_dav_provider.py:276:71: E226 missing whitespace around arithmetic operator
+./wsgidav/addons/hg_dav_provider.py:313:16: F821 undefined name 'file'
+./wsgidav/addons/hg_dav_provider.py:321:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:331:5: E303 too many blank lines (2)
+./wsgidav/addons/hg_dav_provider.py:337:5: E303 too many blank lines (2)
+./wsgidav/addons/hg_dav_provider.py:346:5: E303 too many blank lines (2)
+./wsgidav/addons/hg_dav_provider.py:364:80: E501 line too long (82 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:371:5: E303 too many blank lines (2)
+./wsgidav/addons/hg_dav_provider.py:387:80: E501 line too long (82 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:394:1: E265 block comment should start with '# '
+./wsgidav/addons/hg_dav_provider.py:394:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:396:1: E265 block comment should start with '# '
+./wsgidav/addons/hg_dav_provider.py:396:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:424:80: E501 line too long (105 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:425:80: E501 line too long (98 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:432:21: E201 whitespace after '['
+./wsgidav/addons/hg_dav_provider.py:440:21: E201 whitespace after '['
+./wsgidav/addons/hg_dav_provider.py:446:5: E303 too many blank lines (2)
+./wsgidav/addons/hg_dav_provider.py:469:5: E303 too many blank lines (2)
+./wsgidav/addons/hg_dav_provider.py:492:80: E501 line too long (84 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:511:23: F821 undefined name 'to_native'
+./wsgidav/addons/hg_dav_provider.py:513:27: F821 undefined name 'to_native'
+./wsgidav/addons/hg_dav_provider.py:530:47: E226 missing whitespace around arithmetic operator
+./wsgidav/addons/hg_dav_provider.py:533:24: E713 test for membership should be 'not in'
+./wsgidav/addons/hg_dav_provider.py:547:16: F821 undefined name 'to_native'
+./wsgidav/addons/hg_dav_provider.py:548:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/hg_dav_provider.py:558:1: E266 too many leading '#' for block comment
+./wsgidav/addons/hg_dav_provider.py:568:5: E303 too many blank lines (2)
+./wsgidav/addons/hg_dav_provider.py:594:28: E201 whitespace after '['
+./wsgidav/addons/hg_dav_provider.py:594:29: F821 undefined name 'to_native'
+./wsgidav/addons/hg_dav_provider.py:594:53: E272 multiple spaces before keyword
+./wsgidav/addons/hg_dav_provider.py:594:71: E202 whitespace before ']'
+./wsgidav/addons/couch_property_manager.py:1:80: E501 line too long (91 > 79 characters)
+./wsgidav/addons/couch_property_manager.py:2:80: E501 line too long (84 > 79 characters)
+./wsgidav/addons/couch_property_manager.py:20:80: E501 line too long (82 > 79 characters)
+./wsgidav/addons/couch_property_manager.py:37:1: E265 block comment should start with '# '
+./wsgidav/addons/couch_property_manager.py:37:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/couch_property_manager.py:39:1: E265 block comment should start with '# '
+./wsgidav/addons/couch_property_manager.py:39:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/couch_property_manager.py:40:1: E302 expected 2 blank lines, found 1
+./wsgidav/addons/couch_property_manager.py:59:80: E501 line too long (98 > 79 characters)
+./wsgidav/addons/couch_property_manager.py:62:80: E501 line too long (100 > 79 characters)
+./wsgidav/addons/couch_property_manager.py:65:12: E713 test for membership should be 'not in'
+./wsgidav/addons/couch_property_manager.py:79:80: E501 line too long (101 > 79 characters)
+./wsgidav/addons/couch_property_manager.py:153:80: E501 line too long (109 > 79 characters)
+./wsgidav/addons/couch_property_manager.py:170:80: E501 line too long (88 > 79 characters)
+./wsgidav/addons/couch_property_manager.py:175:80: E501 line too long (83 > 79 characters)
+./wsgidav/addons/couch_property_manager.py:191:80: E501 line too long (94 > 79 characters)
+./wsgidav/addons/couch_property_manager.py:204:80: E501 line too long (85 > 79 characters)
+./wsgidav/addons/couch_property_manager.py:223:1: E265 block comment should start with '# '
+./wsgidav/addons/couch_property_manager.py:223:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/couch_property_manager.py:225:1: E265 block comment should start with '# '
+./wsgidav/addons/couch_property_manager.py:225:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/couch_property_manager.py:226:1: E302 expected 2 blank lines, found 1
+./wsgidav/addons/nt_domain_controller.py:1:80: E501 line too long (91 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:3:80: E501 line too long (84 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:21:80: E501 line too long (90 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:22:80: E501 line too long (81 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:23:80: E501 line too long (87 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:26:80: E501 line too long (87 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:27:80: E501 line too long (81 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:30:80: E501 line too long (91 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:33:80: E501 line too long (87 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:49:80: E501 line too long (88 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:50:80: E501 line too long (86 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:51:80: E501 line too long (83 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:57:80: E501 line too long (82 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:60:80: E501 line too long (90 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:61:80: E501 line too long (87 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:62:80: E501 line too long (92 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:66:80: E501 line too long (88 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:70:80: E501 line too long (80 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:80:20: E262 inline comment should start with '# '
+./wsgidav/addons/nt_domain_controller.py:81:21: E261 at least two spaces before inline comment
+./wsgidav/addons/nt_domain_controller.py:81:22: E262 inline comment should start with '# '
+./wsgidav/addons/nt_domain_controller.py:82:19: E261 at least two spaces before inline comment
+./wsgidav/addons/nt_domain_controller.py:82:20: E262 inline comment should start with '# '
+./wsgidav/addons/nt_domain_controller.py:90:36: E251 unexpected spaces around keyword / parameter equals
+./wsgidav/addons/nt_domain_controller.py:90:38: E251 unexpected spaces around keyword / parameter equals
+./wsgidav/addons/nt_domain_controller.py:90:57: E251 unexpected spaces around keyword / parameter equals
+./wsgidav/addons/nt_domain_controller.py:90:59: E251 unexpected spaces around keyword / parameter equals
+./wsgidav/addons/nt_domain_controller.py:95:5: E303 too many blank lines (2)
+./wsgidav/addons/nt_domain_controller.py:99:5: E303 too many blank lines (2)
+./wsgidav/addons/nt_domain_controller.py:103:5: E303 too many blank lines (2)
+./wsgidav/addons/nt_domain_controller.py:107:5: E303 too many blank lines (2)
+./wsgidav/addons/nt_domain_controller.py:113:5: E303 too many blank lines (2)
+./wsgidav/addons/nt_domain_controller.py:129:5: E303 too many blank lines (2)
+./wsgidav/addons/nt_domain_controller.py:135:5: E303 too many blank lines (2)
+./wsgidav/addons/nt_domain_controller.py:144:31: E711 comparison to None should be 'if cond is not None:'
+./wsgidav/addons/nt_domain_controller.py:150:5: E303 too many blank lines (2)
+./wsgidav/addons/nt_domain_controller.py:151:31: E711 comparison to None should be 'if cond is not None:'
+./wsgidav/addons/nt_domain_controller.py:163:5: E303 too many blank lines (2)
+./wsgidav/addons/nt_domain_controller.py:169:80: E501 line too long (109 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:175:47: F821 undefined name 'unicode'
+./wsgidav/addons/nt_domain_controller.py:185:5: E303 too many blank lines (2)
+./wsgidav/addons/nt_domain_controller.py:190:80: E501 line too long (149 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:192:80: E501 line too long (83 > 79 characters)
+./wsgidav/addons/nt_domain_controller.py:196:31: E261 at least two spaces before inline comment
+./wsgidav/addons/nt_domain_controller.py:196:32: E262 inline comment should start with '# '
+./wsgidav/samples/dav_provider_tools.py:2:80: E501 line too long (91 > 79 characters)
+./wsgidav/samples/dav_provider_tools.py:3:80: E501 line too long (84 > 79 characters)
+./wsgidav/samples/dav_provider_tools.py:20:1: E265 block comment should start with '# '
+./wsgidav/samples/dav_provider_tools.py:20:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/dav_provider_tools.py:22:1: E265 block comment should start with '# '
+./wsgidav/samples/dav_provider_tools.py:22:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/dav_provider_tools.py:24:1: E302 expected 2 blank lines, found 1
+./wsgidav/samples/dav_provider_tools.py:32:36: F821 undefined name 'basestring'
+./wsgidav/samples/dav_provider_tools.py:33:28: E201 whitespace after '{'
+./wsgidav/samples/dav_provider_tools.py:33:48: E202 whitespace before '}'
+./wsgidav/samples/dav_provider_tools.py:50:1: E115 expected an indented block (comment)
+./wsgidav/samples/dav_provider_tools.py:56:1: E265 block comment should start with '# '
+./wsgidav/samples/dav_provider_tools.py:56:1: E303 too many blank lines (3)
+./wsgidav/samples/dav_provider_tools.py:56:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/dav_provider_tools.py:58:1: E265 block comment should start with '# '
+./wsgidav/samples/dav_provider_tools.py:58:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/dav_provider_tools.py:59:1: E302 expected 2 blank lines, found 3
+./wsgidav/samples/dav_provider_tools.py:63:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:65:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:67:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:69:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:71:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:73:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:75:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:77:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:87:1: E265 block comment should start with '# '
+./wsgidav/samples/dav_provider_tools.py:87:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/dav_provider_tools.py:89:1: E265 block comment should start with '# '
+./wsgidav/samples/dav_provider_tools.py:89:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/dav_provider_tools.py:98:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:100:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:104:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:106:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:108:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:113:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:117:1: E265 block comment should start with '# '
+./wsgidav/samples/dav_provider_tools.py:117:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/dav_provider_tools.py:119:1: E265 block comment should start with '# '
+./wsgidav/samples/dav_provider_tools.py:119:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/dav_provider_tools.py:123:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:128:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:131:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:139:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:142:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:144:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:148:80: E501 line too long (89 > 79 characters)
+./wsgidav/samples/dav_provider_tools.py:150:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/dav_provider_tools.py:151:9: F841 local variable 'mime' is assigned to but never used
+./wsgidav/samples/dav_provider_tools.py:155:16: F821 undefined name 'file'
+./wsgidav/samples/dav_provider_tools.py:158:1: E265 block comment should start with '# '
+./wsgidav/samples/dav_provider_tools.py:158:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/dav_provider_tools.py:160:1: E265 block comment should start with '# '
+./wsgidav/samples/dav_provider_tools.py:160:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/dav_provider_tools.py:166:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/virtual_dav_provider.py:2:80: E501 line too long (91 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:3:80: E501 line too long (84 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:42:80: E501 line too long (81 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:102:1: F401 'urllib' imported but unused
+./wsgidav/samples/virtual_dav_provider.py:117:1: E265 block comment should start with '# '
+./wsgidav/samples/virtual_dav_provider.py:117:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:119:1: E265 block comment should start with '# '
+./wsgidav/samples/virtual_dav_provider.py:119:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:164:17: E201 whitespace after '['
+./wsgidav/samples/virtual_dav_provider.py:164:80: E501 line too long (82 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:164:81: E202 whitespace before ']'
+./wsgidav/samples/virtual_dav_provider.py:166:18: E225 missing whitespace around operator
+./wsgidav/samples/virtual_dav_provider.py:166:19: E201 whitespace after '['
+./wsgidav/samples/virtual_dav_provider.py:166:80: E501 line too long (82 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:166:81: E202 whitespace before ']'
+./wsgidav/samples/virtual_dav_provider.py:168:18: E225 missing whitespace around operator
+./wsgidav/samples/virtual_dav_provider.py:168:19: E201 whitespace after '['
+./wsgidav/samples/virtual_dav_provider.py:168:80: E501 line too long (82 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:168:81: E202 whitespace before ']'
+./wsgidav/samples/virtual_dav_provider.py:180:1: E265 block comment should start with '# '
+./wsgidav/samples/virtual_dav_provider.py:180:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:182:1: E265 block comment should start with '# '
+./wsgidav/samples/virtual_dav_provider.py:182:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:197:80: E501 line too long (81 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:220:24: E713 test for membership should be 'not in'
+./wsgidav/samples/virtual_dav_provider.py:230:80: E501 line too long (84 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:233:80: E501 line too long (84 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:246:18: E201 whitespace after '['
+./wsgidav/samples/virtual_dav_provider.py:246:80: E501 line too long (88 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:246:87: E202 whitespace before ']'
+./wsgidav/samples/virtual_dav_provider.py:253:80: E501 line too long (84 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:257:1: E265 block comment should start with '# '
+./wsgidav/samples/virtual_dav_provider.py:257:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:259:1: E265 block comment should start with '# '
+./wsgidav/samples/virtual_dav_provider.py:259:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:261:80: E501 line too long (81 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:291:80: E501 line too long (85 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:295:80: E501 line too long (98 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:301:12: E713 test for membership should be 'not in'
+./wsgidav/samples/virtual_dav_provider.py:308:20: E261 at least two spaces before inline comment
+./wsgidav/samples/virtual_dav_provider.py:313:12: E713 test for membership should be 'not in'
+./wsgidav/samples/virtual_dav_provider.py:317:12: E713 test for membership should be 'not in'
+./wsgidav/samples/virtual_dav_provider.py:319:20: E261 at least two spaces before inline comment
+./wsgidav/samples/virtual_dav_provider.py:324:12: E713 test for membership should be 'not in'
+./wsgidav/samples/virtual_dav_provider.py:326:12: E713 test for membership should be 'not in'
+./wsgidav/samples/virtual_dav_provider.py:334:12: E713 test for membership should be 'not in'
+./wsgidav/samples/virtual_dav_provider.py:336:20: E261 at least two spaces before inline comment
+./wsgidav/samples/virtual_dav_provider.py:401:1: E265 block comment should start with '# '
+./wsgidav/samples/virtual_dav_provider.py:401:1: E303 too many blank lines (3)
+./wsgidav/samples/virtual_dav_provider.py:401:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:403:1: E265 block comment should start with '# '
+./wsgidav/samples/virtual_dav_provider.py:403:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:404:1: E302 expected 2 blank lines, found 3
+./wsgidav/samples/virtual_dav_provider.py:408:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/virtual_dav_provider.py:410:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/virtual_dav_provider.py:412:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/virtual_dav_provider.py:414:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/virtual_dav_provider.py:416:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/virtual_dav_provider.py:418:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/virtual_dav_provider.py:420:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/virtual_dav_provider.py:422:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/virtual_dav_provider.py:432:1: E265 block comment should start with '# '
+./wsgidav/samples/virtual_dav_provider.py:432:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:434:1: E265 block comment should start with '# '
+./wsgidav/samples/virtual_dav_provider.py:434:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:438:1: E115 expected an indented block (comment)
+./wsgidav/samples/virtual_dav_provider.py:444:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/virtual_dav_provider.py:448:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/virtual_dav_provider.py:450:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/virtual_dav_provider.py:458:22: E201 whitespace after '['
+./wsgidav/samples/virtual_dav_provider.py:458:80: E501 line too long (108 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:458:107: E202 whitespace before ']'
+./wsgidav/samples/virtual_dav_provider.py:504:80: E501 line too long (84 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:508:1: E265 block comment should start with '# '
+./wsgidav/samples/virtual_dav_provider.py:508:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:510:1: E265 block comment should start with '# '
+./wsgidav/samples/virtual_dav_provider.py:510:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:523:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/virtual_dav_provider.py:531:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/virtual_dav_provider.py:534:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/virtual_dav_provider.py:536:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/virtual_dav_provider.py:541:80: E501 line too long (87 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:545:9: F841 local variable 'mime' is assigned to but never used
+./wsgidav/samples/virtual_dav_provider.py:549:16: F821 undefined name 'file'
+./wsgidav/samples/virtual_dav_provider.py:552:1: E265 block comment should start with '# '
+./wsgidav/samples/virtual_dav_provider.py:552:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:554:1: E265 block comment should start with '# '
+./wsgidav/samples/virtual_dav_provider.py:554:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:578:1: E265 block comment should start with '# '
+./wsgidav/samples/virtual_dav_provider.py:585:1: E266 too many leading '#' for block comment
+./wsgidav/samples/virtual_dav_provider.py:600:80: E501 line too long (86 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:602:80: E501 line too long (110 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:615:80: E501 line too long (93 > 79 characters)
+./wsgidav/samples/virtual_dav_provider.py:626:80: E501 line too long (88 > 79 characters)
+./wsgidav/samples/mongo_dav_provider.py:1:80: E501 line too long (91 > 79 characters)
+./wsgidav/samples/mongo_dav_provider.py:2:80: E501 line too long (84 > 79 characters)
+./wsgidav/samples/mongo_dav_provider.py:43:1: E265 block comment should start with '# '
+./wsgidav/samples/mongo_dav_provider.py:43:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/mongo_dav_provider.py:45:1: E265 block comment should start with '# '
+./wsgidav/samples/mongo_dav_provider.py:45:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/mongo_dav_provider.py:53:17: E201 whitespace after '['
+./wsgidav/samples/mongo_dav_provider.py:53:76: E202 whitespace before ']'
+./wsgidav/samples/mongo_dav_provider.py:70:17: E201 whitespace after '['
+./wsgidav/samples/mongo_dav_provider.py:70:76: E202 whitespace before ']'
+./wsgidav/samples/mongo_dav_provider.py:90:24: F821 undefined name 'to_native'
+./wsgidav/samples/mongo_dav_provider.py:103:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/mongo_dav_provider.py:106:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/mongo_dav_provider.py:108:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/mongo_dav_provider.py:110:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/mongo_dav_provider.py:117:20: F821 undefined name 'to_native'
+./wsgidav/samples/mongo_dav_provider.py:118:16: F821 undefined name 'to_native'
+./wsgidav/samples/mongo_dav_provider.py:119:5: E301 expected 1 blank line, found 0
+./wsgidav/samples/mongo_dav_provider.py:123:1: E265 block comment should start with '# '
+./wsgidav/samples/mongo_dav_provider.py:123:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/mongo_dav_provider.py:125:1: E265 block comment should start with '# '
+./wsgidav/samples/mongo_dav_provider.py:125:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/mongo_dav_provider.py:131:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/mongo_dav_provider.py:139:80: E501 line too long (96 > 79 characters)
+./wsgidav/samples/mongo_dav_provider.py:153:1: E265 block comment should start with '# '
+./wsgidav/samples/mongo_dav_provider.py:153:80: E501 line too long (80 > 79 characters)
+./wsgidav/samples/mongo_dav_provider.py:155:1: E265 block comment should start with '# '
+./wsgidav/samples/mongo_dav_provider.py:155:80: E501 line too long (80 > 79 characters)
+./tests/test_wsgidav_app.py:2:80: E501 line too long (91 > 79 characters)
+./tests/test_wsgidav_app.py:31:80: E501 line too long (85 > 79 characters)
+./tests/test_wsgidav_app.py:32:80: E501 line too long (105 > 79 characters)
+./tests/test_wsgidav_app.py:36:1: E265 block comment should start with '# '
+./tests/test_wsgidav_app.py:38:1: E265 block comment should start with '# '
+./tests/test_wsgidav_app.py:169:80: E501 line too long (83 > 79 characters)
+./tests/test_wsgidav_app.py:235:1: E265 block comment should start with '# '
+./tests/util.py:2:80: E501 line too long (91 > 79 characters)
+./tests/util.py:18:1: F401 'subprocess' imported but unused
+./tests/util.py:22:1: F401 'unittest' imported but unused
+./tests/util.py:28:1: E265 block comment should start with '# '
+./tests/util.py:30:1: E265 block comment should start with '# '
+./tests/util.py:35:80: E501 line too long (88 > 79 characters)
+./tests/util.py:59:1: E265 block comment should start with '# '
+./tests/util.py:61:1: E265 block comment should start with '# '
+./tests/util.py:105:80: E501 line too long (99 > 79 characters)
+./tests/util.py:106:80: E501 line too long (99 > 79 characters)
+./tests/util.py:121:1: E265 block comment should start with '# '
+./tests/util.py:123:1: E265 block comment should start with '# '
+./tests/util.py:128:80: E501 line too long (84 > 79 characters)
+./tests/test_scripted.py:2:80: E501 line too long (91 > 79 characters)
+./tests/test_scripted.py:28:1: E265 block comment should start with '# '
+./tests/test_scripted.py:36:1: E265 block comment should start with '# '
+./tests/test_scripted.py:65:1: E265 block comment should start with '# '
+./tests/test_scripted.py:67:1: E265 block comment should start with '# '
+./tests/test_scripted.py:140:1: E265 block comment should start with '# '
+./tests/test_scripted.py:142:1: E265 block comment should start with '# '
+./tests/test_scripted.py:287:80: E501 line too long (82 > 79 characters)
+./tests/test_scripted.py:332:80: E501 line too long (80 > 79 characters)
+./tests/test_scripted.py:369:9: F841 local variable '_locks' is assigned to but never used
+./tests/test_scripted.py:439:80: E501 line too long (80 > 79 characters)
+./tests/test_scripted.py:497:1: E265 block comment should start with '# '
+./tests/test_scripted.py:499:1: E265 block comment should start with '# '
+./tests/test_property_manager.py:2:80: E501 line too long (91 > 79 characters)
+./tests/test_property_manager.py:13:1: E265 block comment should start with '# '
+./tests/test_property_manager.py:15:1: E265 block comment should start with '# '
+./tests/test_property_manager.py:63:80: E501 line too long (81 > 79 characters)
+./tests/test_property_manager.py:65:80: E501 line too long (86 > 79 characters)
+./tests/test_property_manager.py:75:1: E265 block comment should start with '# '
+./tests/test_property_manager.py:77:1: E265 block comment should start with '# '
+./tests/test_property_manager.py:102:1: E265 block comment should start with '# '
+./tests/test_lock_manager.py:2:80: E501 line too long (91 > 79 characters)
+./tests/test_lock_manager.py:14:1: E265 block comment should start with '# '
+./tests/test_lock_manager.py:16:1: E265 block comment should start with '# '
+./tests/test_lock_manager.py:48:80: E501 line too long (84 > 79 characters)
+./tests/test_lock_manager.py:50:80: E501 line too long (82 > 79 characters)
+./tests/test_lock_manager.py:57:13: F841 local variable '_' is assigned to but never used
+./tests/test_lock_manager.py:66:21: W503 line break before binary operator
+./tests/test_lock_manager.py:67:21: W503 line break before binary operator
+./tests/test_lock_manager.py:68:21: W503 line break before binary operator
+./tests/test_lock_manager.py:80:80: E501 line too long (121 > 79 characters)
+./tests/test_lock_manager.py:97:1: E266 too many leading '#' for block comment
+./tests/test_lock_manager.py:108:80: E501 line too long (82 > 79 characters)
+./tests/test_lock_manager.py:111:80: E501 line too long (82 > 79 characters)
+./tests/test_lock_manager.py:114:80: E501 line too long (82 > 79 characters)
+./tests/test_lock_manager.py:117:80: E501 line too long (81 > 79 characters)
+./tests/test_lock_manager.py:120:80: E501 line too long (81 > 79 characters)
+./tests/test_lock_manager.py:123:80: E501 line too long (82 > 79 characters)
+./tests/test_lock_manager.py:130:80: E501 line too long (85 > 79 characters)
+./tests/test_lock_manager.py:183:80: E501 line too long (85 > 79 characters)
+./tests/test_lock_manager.py:216:80: E501 line too long (83 > 79 characters)
+./tests/test_lock_manager.py:221:80: E501 line too long (83 > 79 characters)
+./tests/test_lock_manager.py:232:80: E501 line too long (83 > 79 characters)
+./tests/test_lock_manager.py:235:1: E265 block comment should start with '# '
+./tests/test_lock_manager.py:237:1: E265 block comment should start with '# '
+./tests/test_lock_manager.py:261:1: E265 block comment should start with '# '
+./tests/test_lock_manager.py:263:1: E265 block comment should start with '# '
+./tests/conftest.py:4:1: E402 module level import not at top of file
+./tests/davclient.py:24:1: F401 'base64' imported but unused
+./tests/davclient.py:36:5: E731 do not assign a lambda expression, use a def
+./tests/davclient.py:37:5: E731 do not assign a lambda expression, use a def
+./tests/davclient.py:37:42: F821 undefined name 'unicode'
+./tests/davclient.py:38:5: E731 do not assign a lambda expression, use a def
+./tests/davclient.py:45:5: E731 do not assign a lambda expression, use a def
+./tests/davclient.py:46:5: E731 do not assign a lambda expression, use a def
+./tests/davclient.py:47:5: E731 do not assign a lambda expression, use a def
+./tests/davclient.py:49:1: E731 do not assign a lambda expression, use a def
+./tests/davclient.py:50:1: E731 do not assign a lambda expression, use a def
+./tests/davclient.py:65:80: E501 line too long (103 > 79 characters)
+./tests/davclient.py:144:80: E501 line too long (91 > 79 characters)
+./tests/davclient.py:180:5: E266 too many leading '#' for block comment
+./tests/davclient.py:214:80: E501 line too long (99 > 79 characters)
+./tests/davclient.py:228:80: E501 line too long (99 > 79 characters)
+./tests/davclient.py:231:80: W291 trailing whitespace
+./tests/davclient.py:234:80: E501 line too long (141 > 79 characters)
+./tests/davclient.py:244:80: E501 line too long (99 > 79 characters)
+./tests/davclient.py:258:80: E501 line too long (99 > 79 characters)
+./tests/davclient.py:261:80: W291 trailing whitespace
+./tests/davclient.py:264:80: E501 line too long (141 > 79 characters)
+./tests/davclient.py:274:80: E501 line too long (95 > 79 characters)
+./tests/davclient.py:275:80: E501 line too long (86 > 79 characters)
+./tests/davclient.py:297:80: E501 line too long (80 > 79 characters)
+./tests/davclient.py:322:80: E501 line too long (97 > 79 characters)
+./tests/davclient.py:323:80: E501 line too long (124 > 79 characters)
+./tests/davclient.py:348:80: E501 line too long (103 > 79 characters)
+./tests/davclient.py:351:80: E501 line too long (87 > 79 characters)
+./tests/davclient.py:451:16: E713 test for membership should be 'not in'
+./tests/davclient.py:452:80: E501 line too long (84 > 79 characters)
+./tests/test_litmus.py:2:80: E501 line too long (91 > 79 characters)
+./tests/test_litmus.py:11:1: F401 'multiprocessing.Process' imported but unused
+./tests/test_litmus.py:14:1: F401 'sys' imported but unused
+./tests/test_litmus.py:15:1: F401 'tempfile.gettempdir' imported but unused
+./tests/test_litmus.py:16:1: F401 'time' imported but unused
+./tests/test_litmus.py:20:1: F401 'wsgidav.wsgidav_app.DEFAULT_CONFIG' imported but unused
+./tests/test_litmus.py:20:1: F401 'wsgidav.wsgidav_app.WsgiDAVApp' imported but unused
+./tests/test_litmus.py:21:1: F401 'wsgidav.fs_dav_provider.FilesystemProvider' imported but unused
+./tests/test_litmus.py:24:1: E265 block comment should start with '# '
+./tests/test_litmus.py:26:1: E265 block comment should start with '# '
+./tests/test_litmus.py:28:80: E501 line too long (87 > 79 characters)
+./tests/test_litmus.py:81:1: E265 block comment should start with '# '
+./tests/test_litmus.py:83:1: E265 block comment should start with '# '
+./tests/benchmarks.py:2:80: E501 line too long (91 > 79 characters)
+./tests/benchmarks.py:6:33: W291 trailing whitespace
+./tests/benchmarks.py:7:1: W293 blank line contains whitespace
+./tests/benchmarks.py:13:40: W291 trailing whitespace
+./tests/benchmarks.py:17:25: W291 trailing whitespace
+./tests/benchmarks.py:18:30: W291 trailing whitespace
+./tests/benchmarks.py:35:14: W291 trailing whitespace
+./tests/benchmarks.py:40:80: E501 line too long (98 > 79 characters)
+./tests/benchmarks.py:59:1: F401 'time' imported but unused
+./tests/benchmarks.py:69:18: F821 undefined name 'xrange'
+./tests/benchmarks.py:73:80: E501 line too long (98 > 79 characters)
+./tests/benchmarks.py:74:27: F821 undefined name 'unicode'
+./tests/benchmarks.py:110:13: F841 local variable 'res' is assigned to but never used
+./tests/benchmarks.py:112:80: E501 line too long (99 > 79 characters)
+./tests/benchmarks.py:115:80: E501 line too long (98 > 79 characters)
+./tests/benchmarks.py:144:80: E501 line too long (84 > 79 characters)
+./tests/benchmarks.py:149:80: E501 line too long (83 > 79 characters)
+./tests/benchmarks.py:154:80: E501 line too long (84 > 79 characters)
+./tests/benchmarks.py:159:80: E501 line too long (83 > 79 characters)
+./tests/benchmarks.py:161:13: F841 local variable 'body' is assigned to but never used
+./tests/benchmarks.py:164:80: E501 line too long (84 > 79 characters)
+./tests/benchmarks.py:209:1: E265 block comment should start with '# '
+./tests/benchmarks.py:211:1: E265 block comment should start with '# '
+./tests/benchmarks.py:217:80: E501 line too long (80 > 79 characters)
+./tests/benchmarks.py:239:80: E501 line too long (100 > 79 characters)
+./tests/test_util.py:2:80: E501 line too long (91 > 79 characters)
+./tests/test_util.py:9:80: E501 line too long (94 > 79 characters)
+./tests/test_util.py:82:1: E265 block comment should start with '# '
+./tests/test_util.py:84:1: E265 block comment should start with '# '

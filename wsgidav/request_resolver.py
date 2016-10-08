@@ -1,4 +1,5 @@
-# (c) 2009-2016 Martin Wendt and contributors; see WsgiDAV https://github.com/mar10/wsgidav
+# (c) 2009-2016 Martin Wendt and contributors;
+# see WsgiDAV https://github.com/mar10/wsgidav
 # Original PyFileServer (c) 2005 Ho Chun Wei.
 # Licensed under the MIT license:
 # http://www.opensource.org/licenses/mit-license.php
@@ -7,9 +8,9 @@ WSGI middleware that finds the registered mapped DAV-Provider, creates a new
 RequestServer instance, and dispatches the request.
 
 
-+-------------------------------------------------------------------------------+
-| The following documentation was taken over from PyFileServer and is outdated! |
-+-------------------------------------------------------------------------------+
++---------------------------------------------------------------------------+
+| Following documentation was taken over from PyFileServer and is outdated! |
++---------------------------------------------------------------------------+
 
 
 WsgiDAV file sharing
@@ -68,7 +69,8 @@ realm is determined. if no configured abstraction layer is found, the
 default abstraction layer fileabstractionlayer.FilesystemAbstractionLayer()
 is used::
 
-   environ['wsgidav.resourceAL'] = fileabstractionlayer.MyOwnFilesystemAbstractionLayer()
+   environ['wsgidav.resourceAL'] = (
+      fileabstractionlayer.MyOwnFilesystemAbstractionLayer())
 
 The path identifiers for the requested url are then resolved using the
 resource abstraction layer::
@@ -82,11 +84,13 @@ to its canonical absolute path
 The RequestResolver also resolves any value in the Destination request
 header, if present, to::
 
-   Destination: http://<servername:port>/<approot>/pubshare/WsgiDAV/LICENSE-dest
+   Destination:
+       http://<servername:port>/<approot>/pubshare/WsgiDAV/LICENSE-dest
    environ['wsgidav.destrealm'] = /pubshare
    environ['wsgidav.destpath'] = /home/public/share/WsgiDAV/LICENSE-dest
    environ['wsgidav.destURI'] = /pubshare/WsgiDAV/LICENSE
-   environ['wsgidav.destresourceAL'] = fileabstractionlayer.MyOwnFilesystemAbstractionLayer()
+   environ['wsgidav.destresourceAL'] = (
+      fileabstractionlayer.MyOwnFilesystemAbstractionLayer())
 
 See `Developers info`_ for more information about the WsgiDAV architecture.
 
@@ -101,11 +105,11 @@ from wsgidav.dav_error import DAVError, HTTP_NOT_FOUND
 __docformat__ = "reStructuredText"
 
 # NOTE (Martin Wendt, 2009-05):
-# The following remarks were made by Ian Bicking when reviewing PyFileServer in 2005.
-# I leave them here after my refactoring for reference.
+# The following remarks were made by Ian Bicking when reviewing PyFileServer
+# in 2005.I leave them here after my refactoring for reference.
 #
 # Remarks:
-#@@: If this were just generalized URL mapping, you'd map it like:
+# @@: If this were just generalized URL mapping, you'd map it like:
 #    Incoming:
 #        SCRIPT_NAME=<approot>; PATH_INFO=/pubshare/PyFileServer/LICENSE
 #    After transforamtion:
@@ -147,9 +151,9 @@ __docformat__ = "reStructuredText"
 #    dispatching that can be done at a higher level.
 #
 
-#=========================================================================
+# =========================================================================
 # RequestResolver
-#=========================================================================
+# =========================================================================
 
 
 class RequestResolver(object):
@@ -170,16 +174,18 @@ class RequestResolver(object):
             # Answer HTTP 'OPTIONS' method on server-level.
             # From RFC 2616:
             # If the Request-URI is an asterisk ("*"), the OPTIONS request is
-            # intended to apply to the server in general rather than to a specific
-            # resource. Since a server's communication options typically depend on
-            # the resource, the "*" request is only useful as a "ping" or "no-op"
-            # type of method; it does nothing beyond allowing the client to test the
-            # capabilities of the server. For example, this can be used to test a
-            # proxy for HTTP/1.1 compliance (or lack thereof).
+            # intended to apply to the server in general rather than to a
+            # specific resource. Since a server's communication options
+            # typically depend on the resource, the "*" request is only
+            # useful as a "ping" or "no-op" type of method; it does nothing
+            # beyond allowing the client to test the capabilities of the
+            # server. For example, this can be used to test a proxy for
+            # HTTP/1.1 compliance (or lack thereof).
 
             dav_compliance_level = "1,2"
 
-            if provider is None or provider.isReadOnly() or provider.lockManager is None:
+            if (provider is None or provider.isReadOnly()
+                    or provider.lockManager is None):
                 dav_compliance_level = "1"
 
             headers = [("Content-Type", "text/html"),
@@ -188,7 +194,8 @@ class RequestResolver(object):
                        ("Date", util.getRfc1123Time()),
                        ]
 
-            if environ["wsgidav.config"].get("add_header_MS_Author_Via", False):
+            if environ["wsgidav.config"].get("add_header_MS_Author_Via",
+                    False):
                 headers.append(("MS-Author-Via", "DAV"))
 
             start_response("200 OK", headers)

@@ -1,4 +1,5 @@
-# (c) 2009-2016 Martin Wendt and contributors; see WsgiDAV https://github.com/mar10/wsgidav
+# (c) 2009-2016 Martin Wendt and contributors;
+# see WsgiDAV https://github.com/mar10/wsgidav
 # Original PyFileServer (c) 2005 Ho Chun Wei.
 # Licensed under the MIT license:
 # http://www.opensource.org/licenses/mit-license.php
@@ -36,9 +37,9 @@ _logger = util.getModuleLogger(__name__)
 BUFFER_SIZE = 8192
 
 
-#=========================================================================
+# =========================================================================
 # FileResource
-#=========================================================================
+# =========================================================================
 class FileResource(DAVNonCollection):
     """Represents a single existing DAV resource instance.
 
@@ -58,12 +59,12 @@ class FileResource(DAVNonCollection):
         return self.filestat[stat.ST_SIZE]
 
     def getContentType(self):
-        #        (mimetype, _mimeencoding) = mimetypes.guess_type(self.path)
-        #        print "mimetype(%s): %r, %r" % (self.path, mimetype, _mimeencoding)
-        #        if not mimetype:
-        #            mimetype = "application/octet-stream"
-        #        print "mimetype(%s): return %r" % (self.path, mimetype)
-        #        return mimetype
+        # (mimetype, _mimeencoding) = mimetypes.guess_type(self.path)
+        # print "mimetype(%s): %r, %r" % (self.path, mimetype, _mimeencoding)
+        # if not mimetype:
+        #     mimetype = "application/octet-stream"
+        # print "mimetype(%s): return %r" % (self.path, mimetype)
+        # return mimetype
         return util.guessMimeType(self.path)
 
     def getCreationDate(self):
@@ -90,7 +91,8 @@ class FileResource(DAVNonCollection):
         See DAVResource.getContent()
         """
         assert not self.isCollection
-        # GC issue 28, 57: if we open in text mode, \r\n is converted to one byte.
+        # GC issue 28, 57: if we open in text mode, \r\n is converted to one
+        # byte.
         # So the file size reported by Windows differs from len(..), thus
         # content-length will be wrong.
         return open(self._filePath, "rb", BUFFER_SIZE)
@@ -138,7 +140,7 @@ class FileResource(DAVNonCollection):
                 propMan.copyProperties(self.getRefUrl(), destRes.getRefUrl())
 
     def supportRecursiveMove(self, destPath):
-        """Return True, if moveRecursive() is available (see comments there)."""
+        "Return True, if moveRecursive() is available (see comments there)."
         return True
 
     def moveRecursive(self, destPath):
@@ -154,8 +156,8 @@ class FileResource(DAVNonCollection):
         # Move dead properties
         if self.provider.propManager:
             destRes = self.provider.getResourceInst(destPath, self.environ)
-            self.provider.propManager.moveProperties(self.getRefUrl(), destRes.getRefUrl(),
-                                                     withChildren=True)
+            self.provider.propManager.moveProperties(self.getRefUrl(),
+                destRes.getRefUrl(), withChildren=True)
 
     def setLastModified(self, destPath, timeStamp, dryRun):
         """Set last modified time for destPath to timeStamp on epoch-format"""
@@ -166,9 +168,9 @@ class FileResource(DAVNonCollection):
         return True
 
 
-#=========================================================================
+# =========================================================================
 # FolderResource
-#=========================================================================
+# =========================================================================
 class FolderResource(DAVCollection):
     """Represents a single existing file system folder DAV resource.
 
@@ -254,7 +256,7 @@ class FolderResource(DAVCollection):
 
         See DAVResource.createEmptyResource()
         """
-        assert not "/" in name
+        assert "/" not in name
         if self.provider.readonly:
             raise DAVError(HTTP_FORBIDDEN)
         path = util.joinUri(self.path, name)
@@ -268,7 +270,7 @@ class FolderResource(DAVCollection):
 
         See DAVResource.createCollection()
         """
-        assert not "/" in name
+        assert "/" not in name
         if self.provider.readonly:
             raise DAVError(HTTP_FORBIDDEN)
         path = util.joinUri(self.path, name)
@@ -313,7 +315,7 @@ class FolderResource(DAVCollection):
                 propMan.copyProperties(self.getRefUrl(), destRes.getRefUrl())
 
     def supportRecursiveMove(self, destPath):
-        """Return True, if moveRecursive() is available (see comments there)."""
+        "Return True, if moveRecursive() is available (see comments there)."
         return True
 
     def moveRecursive(self, destPath):
@@ -329,8 +331,8 @@ class FolderResource(DAVCollection):
         # Move dead properties
         if self.provider.propManager:
             destRes = self.provider.getResourceInst(destPath, self.environ)
-            self.provider.propManager.moveProperties(self.getRefUrl(), destRes.getRefUrl(),
-                                                     withChildren=True)
+            self.provider.propManager.moveProperties(self.getRefUrl(),
+                destRes.getRefUrl(), withChildren=True)
 
     def setLastModified(self, destPath, timeStamp, dryRun):
         """Set last modified time for destPath to timeStamp on epoch-format"""
@@ -341,9 +343,9 @@ class FolderResource(DAVCollection):
         return True
 
 
-#=========================================================================
+# =========================================================================
 # FilesystemProvider
-#=========================================================================
+# =========================================================================
 class FilesystemProvider(DAVProvider):
 
     def __init__(self, rootFolderPath, readonly=False):

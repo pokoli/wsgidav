@@ -1,4 +1,5 @@
-# (c) 2009-2016 Martin Wendt and contributors; see WsgiDAV https://github.com/mar10/wsgidav
+# (c) 2009-2016 Martin Wendt and contributors;
+# see WsgiDAV https://github.com/mar10/wsgidav
 # Original PyFileServer (c) 2005 Ho Chun Wei.
 # Licensed under the MIT license:
 # http://www.opensource.org/licenses/mit-license.php
@@ -46,7 +47,8 @@ import random
 import time
 
 from wsgidav import compat
-from wsgidav.dav_error import DAVError, HTTP_LOCKED, PRECONDITION_CODE_LockConflict
+from wsgidav.dav_error import DAVError, HTTP_LOCKED,\
+    PRECONDITION_CODE_LockConflict
 from wsgidav.dav_error import DAVErrorCondition
 from wsgidav.rw_lock import ReadWriteLock
 from wsgidav import util
@@ -56,9 +58,9 @@ __docformat__ = "reStructuredText"
 _logger = util.getModuleLogger(__name__)
 
 
-#=========================================================================
+# =========================================================================
 # Tool functions
-#=========================================================================
+# =========================================================================
 
 def generateLockToken():
     return "opaquelocktoken:" + compat.to_native(hex(random.getrandbits(256)))
@@ -114,9 +116,9 @@ def validateLock(lock):
         assert compat.is_native(lock["token"])
 
 
-#=========================================================================
+# =========================================================================
 # LockManager
-#=========================================================================
+# =========================================================================
 class LockManager(object):
     """
     Implements locking functionality using a custom storage layer.
@@ -160,8 +162,11 @@ class LockManager(object):
             ownerDict.setdefault(lock["owner"], []).append(tok)
             urlDict.setdefault(lock["root"], []).append(tok)
 
-#            assert ("URL2TOKEN:" + v["root"]) in self._dict, "Inconsistency: missing URL2TOKEN:%s" % v["root"]
-#            assert v["token"] in self._dict["URL2TOKEN:" + v["root"]], "Inconsistency: missing token %s in URL2TOKEN:%s" % (v["token"], v["root"])
+#            assert ("URL2TOKEN:" + v["root"]) in self._dict,
+#               "Inconsistency: missing URL2TOKEN:%s" % v["root"]
+#            assert v["token"] in self._dict["URL2TOKEN:" + v["root"]],
+#               "Inconsistency: missing token %s in URL2TOKEN:%s" % (
+#                   v["token"], v["root"])
 
         print("Locks:", file=out)
         pprint(tokenDict, indent=0, width=255)
@@ -173,8 +178,8 @@ class LockManager(object):
             print("Locks by owner:", file=out)
             pprint(ownerDict, indent=4, width=255, stream=out)
 
-    def _generateLock(self, principal,
-                      locktype, lockscope, lockdepth, lockowner, path, timeout):
+    def _generateLock(self, principal, locktype, lockscope, lockdepth,
+            lockowner, path, timeout):
         """Acquire lock and return lockDict.
 
         principal
@@ -224,7 +229,8 @@ class LockManager(object):
             # Raises DAVError on conflict:
             self._checkLockPermission(
                 url, locktype, lockscope, lockdepth, tokenList, principal)
-            return self._generateLock(principal, locktype, lockscope, lockdepth, lockowner, url, timeout)
+            return self._generateLock(principal, locktype, lockscope,
+                lockdepth, lockowner, url, timeout)
         finally:
             self._lock.release()
 
@@ -237,10 +243,12 @@ class LockManager(object):
     def getLock(self, token, key=None):
         """Return lockDict, or None, if not found or invalid.
 
-        Side effect: if lock is expired, it will be purged and None is returned.
+        Side effect: if lock is expired, it will be purged and None is
+            returned.
 
         key:
-            name of lock attribute that will be returned instead of a dictionary.
+            name of lock attribute that will be returned instead of a
+            dictionary.
         """
         assert key in (None, "type", "scope", "depth", "owner", "root",
                        "timeout", "principal", "token")
@@ -254,13 +262,15 @@ class LockManager(object):
         self.storage.delete(token)
 
     def isTokenLockedByUser(self, token, principal):
-        """Return True, if <token> exists, is valid, and bound to <principal>."""
+        "Return True, if <token> exists, is valid, and bound to <principal>."
         return self.getLock(token, "principal") == principal
 
 
 #    def getUrlLockList(self, url, principal=None):
     def getUrlLockList(self, url):
-        """Return list of lockDict, if <url> is protected by at least one direct, valid lock.
+        """
+        Return list of lockDict, if <url> is protected by at least one
+        direct, valid lock.
 
         Side effect: expired locks for this url are purged.
         """
@@ -271,9 +281,12 @@ class LockManager(object):
         return lockList
 
     def getIndirectUrlLockList(self, url, principal=None):
-        """Return a list of valid lockDicts, that protect <path> directly or indirectly.
+        """
+        Return a list of valid lockDicts, that protect <path> directly or
+        indirectly.
 
-        If a principal is given, only locks owned by this principal are returned.
+        If a principal is given, only locks owned by this principal are
+        returned.
         Side effect: expired locks for this path and all parents are purged.
         """
         url = normalizeLockRoot(url)
@@ -287,7 +300,8 @@ class LockManager(object):
                 if u != url and l["depth"] != "infinity":
                     continue  # We only consider parents with Depth: infinity
                 # TODO: handle shared locks in some way?
-#                if l["scope"] == "shared" and lockscope == "shared" and principal != l["principal"]:
+#                if l["scope"] == "shared" and lockscope == "shared"
+#                   and principal != l["principal"]:
 # continue  # Only compatible with shared locks by other users
                 if principal is None or principal == l["principal"]:
                     lockList.append(l)
@@ -318,7 +332,8 @@ class LockManager(object):
         """Check, if <principal> can lock <url>, otherwise raise an error.
 
         If locking <url> would create a conflict, DAVError(HTTP_LOCKED) is
-        raised. An embedded DAVErrorCondition contains the conflicting resource.
+        raised. An embedded DAVErrorCondition contains the conflicting
+        resource.
 
         @see http://www.webdav.org/specs/rfc4918.html#lock-model
 
@@ -334,7 +349,8 @@ class LockManager(object):
         - <principal> cannot lock-exclusive, if he holds a parent shared-lock.
           (This would only make sense, if he was the only shared-lock holder.)
         - TODO: litmus tries to acquire a shared lock on one resource twice
-          (locks: 27 'double_sharedlock') and fails, when we return HTTP_LOCKED.
+          (locks: 27 'double_sharedlock') and fails, when we return
+          HTTP_LOCKED.
           So we allow multi shared locks on a resource even for the same
           principal.
 
@@ -342,7 +358,8 @@ class LockManager(object):
         @param locktype: "write"
         @param lockscope: "shared"|"exclusive"
         @param lockdepth: "0"|"infinity"
-        @param tokenList: list of lock tokens, that the user submitted in If: header
+        @param tokenList: list of lock tokens, that the user submitted in If:
+            header
         @param principal: name of the principal requesting a lock
 
         @return: None (or raise)
@@ -409,22 +426,25 @@ class LockManager(object):
 
         <url> may be modified by <principal>, if it is not currently locked
         directly or indirectly (i.e. by a locked parent).
-        For depth-infinity operations, <url> also must not have locked children.
+        For depth-infinity operations, <url> also must not have locked
+        children.
 
         It is not enough to check whether a lock is owned by <principal>, but
-        also the token must be passed with the request. Because <principal> may
-        run two different applications.
+        also the token must be passed with the request. Because <principal>
+        may run two different applications.
 
         See http://www.webdav.org/specs/rfc4918.html#lock-model
             http://www.webdav.org/specs/rfc4918.html#rfc.section.7.4
 
         TODO: verify assumptions:
         - Parent locks WILL NOT be conflicting, if they are depth-0.
-        - Exclusive child locks WILL be conflicting, even if they are owned by <principal>.
+        - Exclusive child locks WILL be conflicting, even if they are owned
+        by <principal>.
 
         @param url: URL that shall be modified, created, moved, or deleted
         @param depth: "0"|"infinity"
-        @param tokenList: list of lock tokens, that the principal submitted in If: header
+        @param tokenList: list of lock tokens, that the principal submitted
+        in If: header
         @param principal: name of the principal requesting a lock
 
         @return: None or raise error
@@ -449,14 +469,15 @@ class LockManager(object):
                     if u != url and l["depth"] != "infinity":
                         # We only consider parents with Depth: inifinity
                         continue
-                    elif principal == l["principal"] and l["token"] in tokenList:
+                    elif (principal == l["principal"]
+                            and l["token"] in tokenList):
                         # User owns this lock
                         continue
                     else:
                         # Token is owned by principal, but not passed with lock
                         # list
-                        _logger.debug(
-                            " -> DENIED due to locked parent %s" % lockString(l))
+                        _logger.debug(" -> DENIED due to locked parent %s",
+                            lockString(l))
                         errcond.add_href(l["root"])
                 u = util.getUriParent(u)
 
@@ -483,14 +504,15 @@ class LockManager(object):
         return
 
 
-#=========================================================================
+# =========================================================================
 # test
-#=========================================================================
+# =========================================================================
 def test():
     #    l = ShelveLockManager("wsgidav-locks.shelve")
     #    l._lazyOpen()
     #    l._dump()
-    #    l.generateLock("martin", "", lockscope, lockdepth, lockowner, lockroot, timeout)
+    #    l.generateLock("martin", "", lockscope, lockdepth, lockowner,
+    #       lockroot, timeout)
     pass
 
 if __name__ == "__main__":

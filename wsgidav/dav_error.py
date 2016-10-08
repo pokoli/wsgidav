@@ -1,4 +1,5 @@
-# (c) 2009-2016 Martin Wendt and contributors; see WsgiDAV https://github.com/mar10/wsgidav
+# (c) 2009-2016 Martin Wendt and contributors;
+# see WsgiDAV https://github.com/mar10/wsgidav
 # Original PyFileServer (c) 2005 Ho Chun Wei.
 # Licensed under the MIT license:
 # http://www.opensource.org/licenses/mit-license.php
@@ -9,8 +10,6 @@ from __future__ import print_function
 
 import traceback
 import datetime
-import cgi
-import sys
 
 from wsgidav import __version__
 from wsgidav import compat
@@ -22,9 +21,9 @@ if False:
 
 __docformat__ = "reStructuredText"
 
-#=========================================================================
+# =========================================================================
 # List of HTTP Response Codes.
-#=========================================================================
+# =========================================================================
 HTTP_CONTINUE = 100
 HTTP_SWITCHING_PROTOCOLS = 101
 HTTP_PROCESSING = 102
@@ -78,11 +77,11 @@ HTTP_INSUFFICIENT_STORAGE = 507
 HTTP_NOT_EXTENDED = 510
 
 
-#=========================================================================
+# =========================================================================
 # if ERROR_DESCRIPTIONS exists for an error code, the error description will be
 # sent as the error response code.
 # Otherwise only the numeric code itself is sent.
-#=========================================================================
+# =========================================================================
 # TODO: paste.httpserver may raise exceptions, if a status code is not
 # followed by a description, so should define all of them.
 ERROR_DESCRIPTIONS = {
@@ -105,11 +104,11 @@ ERROR_DESCRIPTIONS = {
     HTTP_BAD_GATEWAY: "502 Bad Gateway",
 }
 
-#=========================================================================
-# if ERROR_RESPONSES exists for an error code, a html output will be sent as response
-# body including the ERROR_RESPONSES value. Otherwise a null response body is sent.
-# Mostly for browser viewing
-#=========================================================================
+# =========================================================================
+# if ERROR_RESPONSES exists for an error code, a html output will be sent as
+# response body including the ERROR_RESPONSES value. Otherwise a null response
+# body is sent. Mostly for browser viewing
+# =========================================================================
 
 ERROR_RESPONSES = {
     HTTP_BAD_REQUEST: "An invalid request was specified",
@@ -120,10 +119,10 @@ ERROR_RESPONSES = {
 }
 
 
-#=========================================================================
+# =========================================================================
 # Condition codes
 # http://www.webdav.org/specs/rfc4918.html#precondition.postcondition.xml.elements
-#=========================================================================
+# =========================================================================
 
 PRECONDITION_CODE_ProtectedProperty = "{DAV:}cannot-modify-protected-property"
 PRECONDITION_CODE_MissingLockToken = "{DAV:}lock-token-submitted"
@@ -145,13 +144,13 @@ class DAVErrorCondition(object):
         assert href.startswith("/")
         assert self.conditionCode in (PRECONDITION_CODE_LockConflict,
                                       PRECONDITION_CODE_MissingLockToken)
-        if not href in self.hrefs:
+        if href not in self.hrefs:
             self.hrefs.append(href)
 
     def as_xml(self):
         if self.conditionCode == PRECONDITION_CODE_MissingLockToken:
-            assert len(
-                self.hrefs) > 0, "lock-token-submitted requires at least one href"
+            assert len(self.hrefs) > 0, "lock-token-submitted requires at"
+            "least one href"
         errorEL = etree.Element("{DAV:}error")
         condEL = etree.SubElement(errorEL, self.conditionCode)
         for href in self.hrefs:
@@ -162,9 +161,9 @@ class DAVErrorCondition(object):
         return compat.to_native(xml_tools.xmlToBytes(self.as_xml(), True))
 
 
-#=========================================================================
+# =========================================================================
 # DAVError
-#=========================================================================
+# =========================================================================
 # @@: I prefer having a separate exception type for each response,
 #     as in paste.httpexceptions.  This way you can catch just the exceptions
 #     you want (or you can catch an abstract superclass to get any of them)
@@ -172,14 +171,16 @@ class DAVErrorCondition(object):
 class DAVError(Exception):
     # TODO: Ian Bicking proposed to add an additional 'comment' arg, but
     #       couldn't we use the existing 'contextinfo'?
-    # @@: This should also take some message value, for a detailed error message.
-    #     This would be helpful for debugging.
+    # @@: This should also take some message value, for a detailed error
+    # message. This would be helpful for debugging.
 
     def __init__(self,
                  statusCode,
                  contextinfo=None,
                  srcexception=None,
-                 errcondition=None):  # allow passing of Pre- and Postconditions, see http://www.webdav.org/specs/rfc4918.html#precondition.postcondition.xml.elements
+                 errcondition=None):
+            # allow passing of Pre- and Postconditions, see
+            # http://www.webdav.org/specs/rfc4918.html#precondition.postcondition.xml.elements
         self.value = int(statusCode)
         self.contextinfo = contextinfo
         self.srcexception = srcexception
@@ -225,10 +226,12 @@ class DAVError(Exception):
         status = getHttpStatusString(self)
         html = []
         html.append(
-            "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01//EN' 'http://www.w3.org/TR/html4/strict.dtd'>")
+            "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01//EN' "
+            "'http://www.w3.org/TR/html4/strict.dtd'>")
         html.append("<html><head>")
         html.append(
-            "  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>")
+            "  <meta http-equiv='Content-Type' content='text/html; "
+            "charset=UTF-8'>")
         html.append("  <title>%s</title>" % status)
         html.append("</head><body>")
         html.append("  <h1>%s</h1>" % status)
@@ -238,8 +241,10 @@ class DAVError(Exception):
 #        if self._server_descriptor:
 #            respbody.append(self._server_descriptor + "<hr>")
         html.append("<hr/>")
-        html.append("<a href='https://github.com/mar10/wsgidav/'>WsgiDAV/%s</a> - %s"
-                    % (__version__, compat.html_escape(str(datetime.datetime.now()), "utf-8")))
+        html.append(
+            "<a href='https://github.com/mar10/wsgidav/'>WsgiDAV/%s</a> - %s"
+            % (__version__,
+            compat.html_escape(str(datetime.datetime.now()), "utf-8")))
         html.append("</body></html>")
         html = "\n".join(html)
         return ("text/html", compat.to_bytes(html))
@@ -255,7 +260,8 @@ def getHttpStatusCode(v):
 
 def getHttpStatusString(v):
     """Return HTTP response string, e.g. 204 -> ('204 No Content').
-    The return string always includes descriptive text, to satisfy Apache mod_dav.
+    The return string always includes descriptive text, to satisfy Apache
+    mod_dav.
 
     `v`: status code or DAVError
     """

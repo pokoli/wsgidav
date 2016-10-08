@@ -1,4 +1,5 @@
-# (c) 2009-2016 Martin Wendt and contributors; see WsgiDAV https://github.com/mar10/wsgidav
+# (c) 2009-2016 Martin Wendt and contributors;
+# see WsgiDAV https://github.com/mar10/wsgidav
 # Original PyFileServer (c) 2005 Ho Chun Wei.
 # Licensed under the MIT license:
 # http://www.opensource.org/licenses/mit-license.php
@@ -12,8 +13,8 @@ On init:
     Define HTTP methods and litmus tests, that should turn on the verbose mode
     (currently hard coded).
 For every request:
-    Increase value of ``environ['verbose']``, if the request should be debugged.
-    Also dump request and response headers and body.
+    Increase value of ``environ['verbose']``, if the request should be
+    debugged. Also dump request and response headers and body.
 
     Then pass the request to the next middleware.
 
@@ -23,14 +24,14 @@ These configuration settings are evaluated:
     This is also used by other modules. This filter adds additional information
     depending on the value.
 
-    =======  ===================================================================
+    =======  ========================================================
     verbose  Effect
-    =======  ===================================================================
+    =======  ========================================================
      0        No additional output.
      1        No additional output (only standard request logging).
      2        Dump headers of all requests and responses.
      3        Dump headers and bodies of all requests and responses.
-    =======  ===================================================================
+    =======  ========================================================
 
 *debug_methods*
     Boost verbosity to 3 while processing certain request methods. This option
@@ -120,7 +121,8 @@ class WsgiDavDebugFilter(BaseMiddleware):
                     dumpResponse = True
                     break
             for litmusSubstring in self.break_after_litmus:
-                if litmusSubstring in self.passedLitmus and litmusSubstring not in litmusTag:
+                if (litmusSubstring in self.passedLitmus
+                        and litmusSubstring not in litmusTag):
                     print(" *** break after litmus %s" %
                           litmusTag, file=self.out)
                     sys.exit(-1)
@@ -168,9 +170,10 @@ class WsgiDavDebugFilter(BaseMiddleware):
 
             # Dump response headers
             if first_yield and dumpResponse:
-                print("<%s> --- %s Response(%s): ---" % (threading.currentThread().ident,
-                                                         method,
-                                                         sub_app_start_response.status),
+                print("<%s> --- %s Response(%s): ---" % (
+                        threading.currentThread().ident,
+                        method,
+                        sub_app_start_response.status),
                       file=self.out)
                 headersdict = dict(sub_app_start_response.response_headers)
                 for envitem in headersdict.keys():
@@ -211,5 +214,6 @@ class WsgiDavDebugFilter(BaseMiddleware):
 
         if dumpResponse:
             print("\n<%s> --- End of %s Response (%i bytes) ---" %
-                  (threading.currentThread().ident, method, nbytes), file=self.out)
+                  (threading.currentThread().ident, method, nbytes),
+                file=self.out)
         return

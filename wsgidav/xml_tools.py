@@ -1,4 +1,5 @@
-# (c) 2009-2016 Martin Wendt and contributors; see WsgiDAV https://github.com/mar10/wsgidav
+# (c) 2009-2016 Martin Wendt and contributors;
+# see WsgiDAV https://github.com/mar10/wsgidav
 # Original PyFileServer (c) 2005 Ho Chun Wei.
 # Licensed under the MIT license:
 # http://www.opensource.org/licenses/mit-license.php
@@ -34,12 +35,12 @@ except ImportError:
     etree.SubElement = SubElement
     etree.tostring = tostring
     # print("WARNING: Could not import lxml: using xml instead (slower).")
-    # print("         Consider installing lxml https://pypi.python.org/pypi/lxml.")
+    # print("Consider installing lxml https://pypi.python.org/pypi/lxml.")
 
 
-#=========================================================================
+# =========================================================================
 # XML
-#=========================================================================
+# =========================================================================
 
 def isEtreeElement(obj):
     return isinstance(obj, _ElementType)
@@ -53,11 +54,15 @@ def stringToXML(text):
         # TODO:
         # ExpatError: reference to invalid character number: line 1, column 62
         # litmus fails, when xml is used instead of lxml
-        # 18. propget............... FAIL (PROPFIND on `/temp/litmus/prop2': Could not read status line: connection was closed by server)
-        # text = <ns0:high-unicode xmlns:ns0="http://example.com/neon/litmus/">&#55296;&#56320;</ns0:high-unicode>
+        # 18. propget............... FAIL (PROPFIND on `/temp/litmus/prop2':
+        # Could not read status line: connection was closed by server)
+        # text = <ns0:high-unicode xmlns:ns0="http://example.com/neon/litmus/"
+        # >&#55296;&#56320;</ns0:high-unicode>
         #        t2 = text.encode("utf8")
         #        return etree.XML(t2)
-        print("Error parsing XML string. If lxml is not available, and unicode is involved, then installing lxml _may_ solve this issue.", file=sys.stderr)
+        print("Error parsing XML string. If lxml is not available, and "
+            "unicode is involved, then installing lxml _may_ solve this "
+            "issue.", file=sys.stderr)
         print("XML source:", text, file=sys.stderr)
         raise
 
@@ -80,21 +85,21 @@ def xmlToBytes(element, pretty_print=False):
 
 
 def makeMultistatusEL():
-    """Wrapper for etree.Element, that takes care of unsupported nsmap option."""
+    "Wrapper for etree.Element, that takes care of unsupported nsmap option."
     if useLxml:
         return etree.Element("{DAV:}multistatus", nsmap={"D": "DAV:"})
     return etree.Element("{DAV:}multistatus")
 
 
 def makePropEL():
-    """Wrapper for etree.Element, that takes care of unsupported nsmap option."""
+    "Wrapper for etree.Element, that takes care of unsupported nsmap option."
     if useLxml:
         return etree.Element("{DAV:}prop", nsmap={"D": "DAV:"})
     return etree.Element("{DAV:}prop")
 
 
 def makeSubElement(parent, tag, nsmap=None):
-    """Wrapper for etree.SubElement, that takes care of unsupported nsmap option."""
+    "Wrapper for etree.SubElement: takes care of unsupported nsmap option."
     if useLxml:
         return etree.SubElement(parent, tag, nsmap=nsmap)
     return etree.SubElement(parent, tag)
@@ -117,9 +122,9 @@ def elementContentAsString(element):
     return s
 
 
-#=========================================================================
+# =========================================================================
 # TEST
-#=========================================================================
+# =========================================================================
 
 if __name__ == "__main__":
     pass

@@ -1,4 +1,5 @@
-# (c) 2009-2016 Martin Wendt and contributors; see WsgiDAV https://github.com/mar10/wsgidav
+# (c) 2009-2016 Martin Wendt and contributors;
+# see WsgiDAV https://github.com/mar10/wsgidav
 # Original PyFileServer (c) 2005 Ho Chun Wei.
 # Licensed under the MIT license:
 # http://www.opensource.org/licenses/mit-license.php
@@ -25,7 +26,6 @@ import socket
 import stat
 import sys
 import time
-import urllib
 
 from wsgidav import compat
 from wsgidav.dav_error import DAVError, HTTP_PRECONDITION_FAILED, HTTP_NOT_MODIFIED,\
@@ -45,19 +45,21 @@ _logger = logging.getLogger(BASE_LOGGER_NAME)
 logging.basicConfig(level=logging.INFO)
 
 
-#=========================================================================
+# =========================================================================
 # Time tools
-#=========================================================================
+# =========================================================================
 
 def getRfc1123Time(secs=None):
-    """Return <secs> in rfc 1123 date/time format (pass secs=None for current date)."""
+    """Return <secs> in rfc 1123 date/time format (pass secs=None for current
+    date)."""
     # GC issue #20: time string must be locale independent
 #    return time.strftime("%a, %d %b %Y %H:%M:%S GMT", time.gmtime(secs))
     return formatdate(timeval=secs, localtime=False, usegmt=True)
 
 
 def getRfc3339Time(secs=None):
-    """Return <secs> in RFC 3339 date/time format (pass secs=None for current date).
+    """Return <secs> in RFC 3339 date/time format (pass secs=None for current
+    date).
 
     RFC 3339 is a subset of ISO 8601, used for '{DAV:}creationdate'.
     See http://tools.ietf.org/html/rfc3339
@@ -88,7 +90,8 @@ def parseTimeString(timestring):
 
 
 def _parsegmtime(timestring):
-    """Return a standard time tuple (see time and calendar), for a date/time string."""
+    """Return a standard time tuple (see time and calendar), for a date/time
+    string."""
     # Sun, 06 Nov 1994 08:49:37 GMT  ; RFC 822, updated by RFC 1123
     try:
         return time.strptime(timestring, "%a, %d %b %Y %H:%M:%S GMT")
@@ -117,9 +120,9 @@ def _parsegmtime(timestring):
     return None
 
 
-#=========================================================================
+# =========================================================================
 # Logging
-#=========================================================================
+# =========================================================================
 
 def initLogging(verbose=2, enable_loggers=[]):
     """Initialize base logger named 'wsgidav'.
@@ -164,20 +167,21 @@ def initLogging(verbose=2, enable_loggers=[]):
 
     Log level matrix
     ~~~~~~~~~~~~~~~~
-    =======  ======  ===========  ======================  =======================
-    verbose  util                        Log level
-    -------  ------  ------------------------------------------------------------
-      n      ()      base logger  module logger(enabled)  module logger(disabled)
-    =======  ======  ===========  ======================  =======================
+    =======  ======  ===========  ======================  ===================
+    verbose  util                               Module Log level
+    -------  ------  ---------------------------------------------------------
+      n      ()      base logger  enabled                 disabled
+    =======  ======  ===========  ======================  ====================
       0      write   ERROR        ERROR                   ERROR
       1      status  WARN         WARN                    WARN
       2      note    INFO         DEBUG                   INFO
       3      debug   DEBUG        DEBUG                   INFO
-    =======  ======  ===========  ======================  =======================
+    =======  ======  ===========  ======================  ====================
     """
 
-    formatter = logging.Formatter("<%(thread)d> [%(asctime)s.%(msecs)d] %(name)s:  %(message)s",
-                                  "%H:%M:%S")
+    formatter = logging.Formatter(
+        "<%(thread)d> [%(asctime)s.%(msecs)d] %(name)s:  %(message)s",
+        "%H:%M:%S")
 
     # Define handlers
     consoleHandler = logging.StreamHandler(sys.stdout)
@@ -231,7 +235,8 @@ def getModuleLogger(moduleName, defaultToVerbose=False):
 #    _logger.debug("getModuleLogger(%s)" % moduleName)
     if not moduleName.startswith(BASE_LOGGER_NAME + "."):
         moduleName = BASE_LOGGER_NAME + "." + moduleName
-#    assert not "." in moduleName, "Only pass the module name, without leading '%s.'." % BASE_LOGGER_NAME
+#    assert not "." in moduleName, "Only pass the module name, without "
+#        "leading '%s.'." % BASE_LOGGER_NAME
 #    logger = logging.getLogger("%s.%s" % (BASE_LOGGER_NAME, moduleName))
     logger = logging.getLogger(moduleName)
     if logger.level == logging.NOTSET and not defaultToVerbose:
@@ -304,9 +309,9 @@ def traceCall(msg=None):
                                f_code.co_name, f_code.co_lineno, msg))
 
 
-#=========================================================================
+# =========================================================================
 # Strings
-#=========================================================================
+# =========================================================================
 
 def lstripstr(s, prefix, ignoreCase=False):
     if ignoreCase:
@@ -319,7 +324,7 @@ def lstripstr(s, prefix, ignoreCase=False):
 
 
 def saveSplit(s, sep, maxsplit):
-    """Split string, always returning n-tuple (filled with None if necessary)."""
+    "Split string, always returning n-tuple (filled with None if necessary)."
     tok = s.split(sep, maxsplit)
     while len(tok) <= maxsplit:
         tok.append(None)
@@ -347,11 +352,13 @@ def popPath2(path):
 def shiftPath(scriptName, pathInfo):
     """Return ('/a', '/b/c') -> ('b', '/a/b', 'c')."""
     segment, rest = popPath(pathInfo)
-    return (segment, joinUri(scriptName.rstrip("/"), segment), rest.rstrip("/"))
+    return (segment, joinUri(scriptName.rstrip("/"), segment),
+        rest.rstrip("/"))
 
 
 def splitNamespace(clarkName):
-    """Return (namespace, localname) tuple for a property name in Clark Notation.
+    """
+    Return (namespace, localname) tuple for a property name in Clark Notation.
 
     Namespace defaults to ''.
     Example:
@@ -365,7 +372,7 @@ def splitNamespace(clarkName):
 
 
 def toUnicode(s):
-    """Convert a binary string to Unicode using UTF-8 (fallback to latin-1)."""
+    "Convert a binary string to Unicode using UTF-8 (fallback to latin-1)."
     try:
         u = compat.to_unicode(s, "utf8")
     except ValueError:
@@ -394,12 +401,13 @@ def stringRepr(s):
     return "%s" % s
 
 
-def getFileExtension(path):
+def getFileExtension(url):
     ext = os.path.splitext(url)[1]
     return ext
 
 
-def byteNumberString(number, thousandsSep=True, partition=False, base1024=True, appendBytes=True):
+def byteNumberString(number, thousandsSep=True, partition=False,
+        base1024=True, appendBytes=True):
     """Convert bytes into human-readable representation."""
     magsuffix = ""
     bytesuffix = ""
@@ -435,9 +443,9 @@ def byteNumberString(number, thousandsSep=True, partition=False, base1024=True, 
     return "%s%s%s" % (snum, magsuffix, bytesuffix)
 
 
-#=========================================================================
+# =========================================================================
 # WSGI
-#=========================================================================
+# =========================================================================
 def getContentLength(environ):
     """Return a positive CONTENT_LENGTH in a safe way (return 0 otherwise)."""
     # TODO: http://www.wsgi.org/wsgi/WSGI_2.0
@@ -448,7 +456,8 @@ def getContentLength(environ):
 
 
 # def readAllInput(environ):
-#    """Read and discard all from from wsgi.input, if this has not been done yet."""
+#    """Read and discard all from from wsgi.input, if this has not been done
+#    yet."""
 #    cl = getContentLength(environ)
 #    if environ.get("wsgidav.all_input_read") or cl == 0:
 #        return
@@ -474,7 +483,8 @@ def readAndDiscardInput(environ):
     'Connection: closed' header is set with the response, to prevent reusing
     the current stream.
     """
-    if environ.get("wsgidav.some_input_read") or environ.get("wsgidav.all_input_read"):
+    if (environ.get("wsgidav.some_input_read")
+            or environ.get("wsgidav.all_input_read")):
         return
     cl = getContentLength(environ)
     assert cl >= 0
@@ -502,10 +512,11 @@ def readAndDiscardInput(environ):
             else:
                 n = 1
             body = wsgi_input.read(n)
-            debug("Reading %s bytes from potentially unread httpserver.LimitedLengthFile: '%s'..." % (
-                n, body[:50]))
+            debug("Reading %s bytes from potentially unread ",
+                "httpserver.LimitedLengthFile: '%s'..." % (n, body[:50]))
 
-    elif hasattr(wsgi_input, "_sock") and hasattr(wsgi_input._sock, "settimeout"):
+    elif (hasattr(wsgi_input, "_sock") and
+            hasattr(wsgi_input._sock, "settimeout")):
         # Seems to be a socket
         try:
             # Set socket to non-blocking
@@ -519,10 +530,11 @@ def readAndDiscardInput(environ):
                 else:
                     n = 1
                 body = wsgi_input.read(n)
-                debug("Reading %s bytes from potentially unread POST body: '%s'..." % (
-                    n, body[:50]))
+                debug("Reading %s bytes from potentially unread POST body: "
+                    "'%s'..." % (n, body[:50]))
             except socket.error as se:
-                # se(10035, 'The socket operation could not complete without blocking')
+                # se(10035, 'The socket operation could not complete without
+                # blocking')
                 warn("-> read %s bytes failed: %s" % (n, se))
             # Restore socket settings
             sock.settimeout(timeout)
@@ -530,9 +542,9 @@ def readAndDiscardInput(environ):
             warn("--> wsgi_input.read(): %s" % sys.exc_info())
 
 
-#=========================================================================
+# =========================================================================
 # SubAppStartResponse
-#=========================================================================
+# =========================================================================
 class SubAppStartResponse(object):
 
     def __init__(self):
@@ -560,9 +572,9 @@ class SubAppStartResponse(object):
         self.__exc_info = exc_info
 
 
-#=========================================================================
+# =========================================================================
 # URLs
-#=========================================================================
+# =========================================================================
 
 def joinUri(uri, *segments):
     """Append segments to URI.
@@ -581,7 +593,8 @@ def getUriName(uri):
 
 
 def getUriParent(uri):
-    """Return URI of parent collection with trailing '/', or None, if URI is top-level.
+    """Return URI of parent collection with trailing '/', or None, if URI is
+    top-level.
 
     This function simply strips the last segment. It does not test, if the
     target is a 'collection', or even exists.
@@ -598,16 +611,19 @@ def isChildUri(parentUri, childUri):
     children of '/a/b' (and also of '/a/b/').
     Note that '/a/b/cd' is NOT a child of 'a/b/c'.
     """
-    return parentUri and childUri and childUri.rstrip("/").startswith(parentUri.rstrip("/") + "/")
+    return (parentUri and childUri and
+        childUri.rstrip("/").startswith(parentUri.rstrip("/") + "/"))
 
 
 def isEqualOrChildUri(parentUri, childUri):
-    """Return True, if childUri is a child of parentUri or maps to the same resource.
+    """Return True, if childUri is a child of parentUri or maps to the same
+    resource.
 
-    Similar to <util.isChildUri>_ ,  but this method also returns True, if parent
-    equals child. ('/a/b' is considered identical with '/a/b/').
+    Similar to <util.isChildUri>_ ,  but this method also returns True, if
+    parent equals child. ('/a/b' is considered identical with '/a/b/').
     """
-    return parentUri and childUri and (childUri.rstrip("/") + "/").startswith(parentUri.rstrip("/") + "/")
+    return (parentUri and childUri and
+        (childUri.rstrip("/") + "/").startswith(parentUri.rstrip("/") + "/"))
 
 
 def makeCompleteUrl(environ, localUri=None):
@@ -639,9 +655,9 @@ def makeCompleteUrl(environ, localUri=None):
     return url
 
 
-#=========================================================================
+# =========================================================================
 # XML
-#=========================================================================
+# =========================================================================
 
 def parseXmlBody(environ, allowEmpty=False):
     """Read request body XML into an etree.Element.
@@ -649,16 +665,16 @@ def parseXmlBody(environ, allowEmpty=False):
     Return None, if no request body was sent.
     Raise HTTP_BAD_REQUEST, if something else went wrong.
 
-    TODO: this is a very relaxed interpretation: should we raise HTTP_BAD_REQUEST
-    instead, if CONTENT_LENGTH is missing, invalid, or 0?
+    TODO: this is a very relaxed interpretation: should we raise
+    HTTP_BAD_REQUEST instead, if CONTENT_LENGTH is missing, invalid, or 0?
 
-    RFC: For compatibility with HTTP/1.0 applications, HTTP/1.1 requests containing
-    a message-body MUST include a valid Content-Length header field unless the
-    server is known to be HTTP/1.1 compliant.
-    If a request contains a message-body and a Content-Length is not given, the
-    server SHOULD respond with 400 (bad request) if it cannot determine the
-    length of the message, or with 411 (length required) if it wishes to insist
-    on receiving a valid Content-Length."
+    RFC: For compatibility with HTTP/1.0 applications, HTTP/1.1 requests
+    containing a message-body MUST include a valid Content-Length header
+    field unless the server is known to be HTTP/1.1 compliant. If a request
+    contains a message-body and a Content-Length is not given, the server
+    SHOULD respond with 400 (bad request) if it cannot determine the length of
+    the message, or with 411 (length required) if it wishes to insist on
+    receiving a valid Content-Length."
 
     So I'd say, we should accept a missing CONTENT_LENGTH, and try to read the
     content anyway.
@@ -713,12 +729,13 @@ def parseXmlBody(environ, allowEmpty=False):
     try:
         rootEL = etree.fromstring(requestbody)
     except Exception as e:
-        raise DAVError(HTTP_BAD_REQUEST, "Invalid XML format.", srcexception=e)
+        raise DAVError(HTTP_BAD_REQUEST, "Invalid XML format.",
+            srcexception=e)
 
-    # If dumps of the body are desired, then this is the place to do it pretty:
+    # If dumps of the body are desired, then this is the place to do it pretty
     if environ.get("wsgidav.dump_request_body"):
         write("%s XML request body:\n%s" % (environ["REQUEST_METHOD"],
-                                            compat.to_native(xmlToBytes(rootEL, pretty_print=True))))
+            compat.to_native(xmlToBytes(rootEL, pretty_print=True))))
         environ["wsgidav.dump_request_body"] = False
 
     return rootEL
@@ -770,7 +787,7 @@ def sendMultiStatusResponse(environ, start_response, multistatusEL):
     # pretty:
     if environ.get("wsgidav.dump_response_body"):
         xml = "%s XML response body:\n%s" % (environ["REQUEST_METHOD"],
-                                             compat.to_native(xmlToBytes(multistatusEL, pretty_print=True)))
+             compat.to_native(xmlToBytes(multistatusEL, pretty_print=True)))
         environ["wsgidav.dump_response_body"] = xml
 
     # Hotfix for Windows XP
@@ -802,7 +819,8 @@ def addPropertyResponse(multistatusEL, href, propList):
       - str or unicode: add element with this content
       - None: add an empty element
       - etree.Element: add XML element as child
-      - DAVError: add an empty element to an own <propstatus> for this status code
+      - DAVError: add an empty element to an own <propstatus> for this status
+        code
 
     @param multistatusEL: etree.Element
     @param href: global URL of the resource, e.g. 'http://server:port/path'.
@@ -824,7 +842,7 @@ def addPropertyResponse(multistatusEL, href, propList):
         # Collect namespaces, so we can declare them in the <response> for
         # compacter output
         ns, _ = splitNamespace(name)
-        if ns != "DAV:" and not ns in nsDict and ns != "":
+        if ns != "DAV:" and ns not in nsDict and ns != "":
             nsDict[ns] = True
             nsMap["NS%s" % nsCount] = ns
             nsCount += 1
@@ -837,7 +855,8 @@ def addPropertyResponse(multistatusEL, href, propList):
 #    log("href value:%s" % (stringRepr(href)))
 #    etree.SubElement(responseEL, "{DAV:}href").text = toUnicode(href)
     etree.SubElement(responseEL, "{DAV:}href").text = href
-#    etree.SubElement(responseEL, "{DAV:}href").text = compat.quote(href, safe="/" + "!*'()," + "$-_|.")
+#    etree.SubElement(responseEL, "{DAV:}href").text = compat.quote(href,
+#       safe="/" + "!*'()," + "$-_|.")
 
     # One <propstat> per status code
     for status in propDict:
@@ -851,17 +870,17 @@ def addPropertyResponse(multistatusEL, href, propList):
                 propEL.append(value)
             else:
                 # value must be string or unicode
-                #                log("%s value:%s" % (name, stringRepr(value)))
-                #                etree.SubElement(propEL, name).text = value
+                # log("%s value:%s" % (name, stringRepr(value)))
+                #     etree.SubElement(propEL, name).text = value
                 etree.SubElement(propEL, name).text = toUnicode(value)
         # <status>
         etree.SubElement(
             propstatEL, "{DAV:}status").text = "HTTP/1.1 %s" % status
 
 
-#=========================================================================
+# =========================================================================
 # ETags
-#=========================================================================
+# =========================================================================
 
 def calc_hexdigest(s):
     """Return md5 digest for a string."""
@@ -901,15 +920,17 @@ def getETag(filePath):
 
     if sys.platform == "win32":
         statresults = os.stat(unicodeFilePath)
-        return md5(filePath).hexdigest() + "-" + str(statresults[stat.ST_MTIME]) + "-" + str(statresults[stat.ST_SIZE])
+        return md5(filePath).hexdigest() + "-" + str(
+            statresults[stat.ST_MTIME]) + "-" + str(statresults[stat.ST_SIZE])
     else:
         statresults = os.stat(unicodeFilePath)
-        return str(statresults[stat.ST_INO]) + "-" + str(statresults[stat.ST_MTIME]) + "-" + str(statresults[stat.ST_SIZE])
+        return str(statresults[stat.ST_INO]) + "-" + str(
+            statresults[stat.ST_MTIME]) + "-" + str(statresults[stat.ST_SIZE])
 
 
-#=========================================================================
+# =========================================================================
 # Ranges
-#=========================================================================
+# =========================================================================
 
 # Range Specifiers
 reByteRangeSpecifier = re.compile("(([0-9]+)\-([0-9]*))")
@@ -922,7 +943,8 @@ def obtainContentRanges(rangetext, filesize):
 
    list
        content ranges as values to their parsed components in the tuple
-       (seek_position/abs position of first byte, abs position of last byte, num_of_bytes_to_read)
+       (seek_position/abs position of first byte, abs position of last byte,
+       num_of_bytes_to_read)
    value
        total length for Content-Length
    """
@@ -933,7 +955,8 @@ def obtainContentRanges(rangetext, filesize):
         if not matched:
             mObj = reByteRangeSpecifier.search(subrange)
             if mObj:
-                #                print(mObj.group(0), mObj.group(1), mObj.group(2), mObj.group(3))
+                # print(mObj.group(0), mObj.group(1), mObj.group(2),
+                #     mObj.group(3))
                 firstpos = int(mObj.group(2))
                 if mObj.group(3) == "":
                     lastpos = filesize - 1
@@ -976,9 +999,9 @@ def obtainContentRanges(rangetext, filesize):
 
     return (listReturn2, totallength)
 
-#=========================================================================
+# =========================================================================
 #
-#=========================================================================
+# =========================================================================
 # any numofsecs above the following limit is regarded as infinite
 MAX_FINITE_TIMEOUT_LIMIT = 10 * 365 * 24 * 60 * 60  # approx 10 years
 reSecondsReader = re.compile(r'second\-([0-9]+)', re.I)
@@ -1003,9 +1026,9 @@ def readTimeoutValueHeader(timeoutvalue):
     return None
 
 
-#=========================================================================
+# =========================================================================
 # If Headers
-#=========================================================================
+# =========================================================================
 
 def evaluateHTTPConditionals(davres, lastmodified, entitytag, environ):
     """Handle 'If-...:' headers (but not 'If:' header).
@@ -1035,11 +1058,13 @@ def evaluateHTTPConditionals(davres, lastmodified, entitytag, environ):
         return
     # Conditions
 
-    # An HTTP/1.1 origin server, upon receiving a conditional request that includes both a Last-Modified date
-    # (e.g., in an If-Modified-Since or If-Unmodified-Since header field) and one or more entity tags (e.g.,
-    # in an If-Match, If-None-Match, or If-Range header field) as cache validators, MUST NOT return a response
-    # status of 304 (Not Modified) unless doing so is consistent with all of the conditional header fields in
-    # the request.
+    # An HTTP/1.1 origin server, upon receiving a conditional request that
+    # includes both a Last-Modified date (e.g., in an If-Modified-Since or
+    # If-Unmodified-Since header field) and one or more entity tags (e.g.,
+    # in an If-Match, If-None-Match, or If-Range header field) as cache
+    # validators, MUST NOT return a response status of 304 (Not Modified)
+    # unless doing so is consistent with all of the conditional header
+    # fields in the request.
 
     if "HTTP_IF_MATCH" in environ and davres.supportEtag():
         ifmatchlist = environ["HTTP_IF_MATCH"].split(",")
@@ -1058,10 +1083,11 @@ def evaluateHTTPConditionals(davres, lastmodified, entitytag, environ):
             ifModifiedSinceFailed = True
 
     # If-None-Match
-    # If none of the entity tags match, then the server MAY perform the requested method as if the
-    # If-None-Match header field did not exist, but MUST also ignore any If-Modified-Since header field
-    # (s) in the request. That is, if no entity tags match, then the server MUST NOT return a 304 (Not Modified)
-    # response.
+    # If none of the entity tags match, then the server MAY perform the
+    # requested method as if the If-None-Match header field did not exist,
+    # but MUST also ignore any If-Modified-Since header field (s) in the
+    # request. That is, if no entity tags match, then the server MUST NOT
+    # return a 304 (Not Modified) response.
     ignoreIfModifiedSince = False
     if "HTTP_IF_NONE_MATCH" in environ and davres.supportEtag():
         ifmatchlist = environ["HTTP_IF_NONE_MATCH"].split(",")
@@ -1070,7 +1096,8 @@ def evaluateHTTPConditionals(davres, lastmodified, entitytag, environ):
             if ifmatchtag == entitytag or ifmatchtag == "*":
                 # ETag matched. If it's a GET request and we don't have an
                 # conflicting If-Modified header, we return NOT_MODIFIED
-                if environ["REQUEST_METHOD"] in ("GET", "HEAD") and not ifModifiedSinceFailed:
+                if (environ["REQUEST_METHOD"] in ("GET", "HEAD")
+                        and not ifModifiedSinceFailed):
                     raise DAVError(HTTP_NOT_MODIFIED,
                                    "If-None-Match header failed")
                 raise DAVError(HTTP_PRECONDITION_FAILED,
@@ -1104,7 +1131,7 @@ def parseIfHeaderDict(environ):
     if "wsgidav.conditions.if" in environ:
         return
 
-    if not "HTTP_IF" in environ:
+    if "HTTP_IF" not in environ:
         environ["wsgidav.conditions.if"] = None
         environ["wsgidav.ifLockTokenList"] = []
         return
@@ -1117,7 +1144,8 @@ def parseIfHeaderDict(environ):
     ifLockList = []
 
     resource1 = "*"
-    for (tmpURLVar, URLVar, _tmpContentVar, contentVar) in reIfSeparator.findall(iftext):
+    for founds in reIfSeparator.findall(iftext):
+        tmpURLVar, URLVar, _tmpContentVar, contentVar = founds
         if tmpURLVar != "":
             resource1 = URLVar
         else:
@@ -1184,9 +1212,9 @@ def testIfHeaderDict(davres, dictIf, fullurl, locktokenlist, entitytag):
 testIfHeaderDict.__test__ = False  # Tell nose to ignore this function
 
 
-#=========================================================================
+# =========================================================================
 # guessMimeType
-#=========================================================================
+# =========================================================================
 _MIME_TYPES = {".oga": "audio/ogg",
                ".ogg": "audio/ogg",
                ".ogv": "video/ogg",
@@ -1211,9 +1239,9 @@ def guessMimeType(url):
 #    print "mimetype(%s): return %r" % (url, mimetype)
     return mimetype
 
-#=========================================================================
+# =========================================================================
 # TEST
-#=========================================================================
+# =========================================================================
 
 
 def testLogging():

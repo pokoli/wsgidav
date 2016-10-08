@@ -1,10 +1,11 @@
-# (c) 2009-2016 Martin Wendt and contributors; see WsgiDAV https://github.com/mar10/wsgidav
+# (c) 2009-2016 Martin Wendt and contributors;
+# see WsgiDAV https://github.com/mar10/wsgidav
 # Original PyFileServer (c) 2005 Ho Chun Wei.
 # Licensed under the MIT license:
 # http://www.opensource.org/licenses/mit-license.php
 """
-Implementation of a domain controller that uses realm/username/password mappings
-from the configuration file and uses the share path as realm name.
+Implementation of a domain controller that uses realm/username/password
+mappings from the configuration file and uses the share path as realm name.
 
 userMap is defined a follows::
 
@@ -72,21 +73,27 @@ class WsgiDAVDomainController(object):
         """Return True if this realm requires authentication or False if it is
         available for general access."""
         # TODO: Should check for --allow_anonymous?
-#        assert realmname in environ["wsgidav.config"]["user_mapping"], "Currently there must be at least on user mapping for this realm"
+#        assert realmname in environ["wsgidav.config"]["user_mapping"],
+#            "Currently there must be at least on user mapping for this realm"
         return realmname in self.userMap
 
     def isRealmUser(self, realmname, username, environ):
-        """Returns True if this username is valid for the realm, False otherwise."""
+        """Returns True if this username is valid for the realm, False
+        otherwise."""
 #        if environ["wsgidav.verbose"] >= 2:
-#            print >>sys.stdout, "isRealmUser('%s', '%s'): %s" %(realmname, username, realmname in self.userMap and username in self.userMap[realmname])
-        return realmname in self.userMap and username in self.userMap[realmname]
+#            print >>sys.stdout, "isRealmUser('%s', '%s'): %s" %(
+#                realmname, username, realmname in self.userMap and
+#                username in self.userMap[realmname])
+        return (realmname in self.userMap
+            and username in self.userMap[realmname])
 
     def getRealmUserPassword(self, realmname, username, environ):
         """Return the password for the given username for the realm.
 
         Used for digest authentication.
         """
-        return self.userMap.get(realmname, {}).get(username, {}).get("password")
+        return self.userMap.get(realmname, {}).get(username, {}).get(
+            "password")
 
     def authDomainUser(self, realmname, username, password, environ):
         """Returns True if this username/password pair is valid for the realm,

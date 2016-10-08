@@ -1,4 +1,5 @@
-# (c) 2009-2016 Martin Wendt and contributors; see WsgiDAV https://github.com/mar10/wsgidav
+# (c) 2009-2016 Martin Wendt and contributors;
+# see WsgiDAV https://github.com/mar10/wsgidav
 # Original PyFileServer (c) 2005 Ho Chun Wei.
 # Licensed under the MIT license:
 # http://www.opensource.org/licenses/mit-license.php
@@ -8,8 +9,8 @@ WSGI server and represents our WsgiDAV application to the outside.
 
 On init:
 
-    Use the configuration dictionary to initialize lock manager, property manager,
-    domain controller.
+    Use the configuration dictionary to initialize lock manager, property
+    manager, domain controller.
 
     Create a dictionary of share-to-provider mappings.
 
@@ -47,7 +48,6 @@ from __future__ import print_function
 import time
 import sys
 import threading
-import urllib
 
 from wsgidav import compat
 from wsgidav.dav_provider import DAVProvider
@@ -68,7 +68,8 @@ __docformat__ = "reStructuredText"
 # Use these settings, if config file does not define them (or is totally
 # missing)
 DEFAULT_CONFIG = {
-    "mount_path": None,  # Application root, e.g. <mount_path>/<share_name>/<res_path>
+    # Application root, e.g. <mount_path>/<share_name>/<res_path>
+    "mount_path": None,
     "provider_mapping": {},
     "host": "localhost",
     "port": 8080,
@@ -97,21 +98,23 @@ DEFAULT_CONFIG = {
     ],
 
     # Verbose Output
-    "verbose": 1,        # 0 - no output (excepting application exceptions)
-                         # 1 - show single line request summaries (for HTTP logging)
-                         # 2 - show additional events
-                         # 3 - show full request/response header info (HTTP Logging)
-                         #     request body and GET response bodies not shown
+    "verbose": 1,  # 0 - no output (excepting application exceptions)
+                   # 1 - show single line request summaries (for HTTP logging)
+                   # 2 - show additional events
+                   # 3 - show full request/response header info (HTTP Logging)
+                   #     request body and GET response bodies not shown
 
     "dir_browser": {
-        "enable": True,               # Render HTML listing for GET requests on collections
+        "enable": True,  # Render HTML listing for GET requests on collections
         "response_trailer": "",       # Raw HTML code, appended as footer
         # Send <dm:mount> response if request URL contains '?davmount'
         "davmount": False,
         # Add an 'open as webfolder' link (requires Windows)
         "ms_mount": False,
-        "ms_sharepoint_plugin": True,  # Invoke MS Offce documents for editing using WebDAV
-        "ms_sharepoint_urls": False,  # Prepend 'ms-word:ofe|u|' to URL for MS Offce documents
+        # Invoke MS Offce documents for editing using WebDAV
+        "ms_sharepoint_plugin": True,
+        # Prepend 'ms-word:ofe|u|' to URL for MS Offce documents
+        "ms_sharepoint_urls": False,
     },
     "middleware_stack": [
         WsgiDavDirBrowser,
@@ -126,14 +129,14 @@ def _checkConfig(config):
     mandatoryFields = ["provider_mapping",
                        ]
     for field in mandatoryFields:
-        if not field in config:
+        if field not in config:
             raise ValueError(
                 "Invalid configuration: missing required field '%s'" % field)
 
 
-#=========================================================================
+# =========================================================================
 # WsgiDAVApp
-#=========================================================================
+# =========================================================================
 class WsgiDAVApp(object):
 
     def __init__(self, config):
@@ -200,10 +203,13 @@ class WsgiDAVApp(object):
         dir_browser = config.get("dir_browser", {})
         middleware_stack = config.get("middleware_stack", [])
 
-        # Replace WsgiDavDirBrowser to custom class for backward compatibility only
+        # Replace WsgiDavDirBrowser to custom class for backward
+        # compatibility only
         # In normal way you should insert it into middleware_stack
-        if dir_browser.get("enable", True) and "app_class" in dir_browser.keys():
-            config["middleware_stack"] = [m if m != WsgiDavDirBrowser else dir_browser[
+        if (dir_browser.get("enable", True)
+                and "app_class" in dir_browser.keys()):
+            config["middleware_stack"] = [
+                    m if m != WsgiDavDirBrowser else dir_browser[
                 'app_class'] for m in middleware_stack]
 
         for mw in middleware_stack:
@@ -235,13 +241,15 @@ class WsgiDAVApp(object):
             for share, data in self.providerMap.items():
                 if data['allow_anonymous']:
                     # TODO: we should only warn here, if --no-auth is not given
-                    print("WARNING: share '%s' will allow anonymous access." % share)
+                    print("WARNING: share '%s' will allow anonymous access."
+                        % share)
 
         self._application = application
 
     def __call__(self, environ, start_response):
 
-        #        util.log("SCRIPT_NAME='%s', PATH_INFO='%s'" % (environ.get("SCRIPT_NAME"), environ.get("PATH_INFO")))
+        #  util.log("SCRIPT_NAME='%s', PATH_INFO='%s'" % (
+        #    environ.get("SCRIPT_NAME"), environ.get("PATH_INFO")))
 
         # We optionall unquote PATH_INFO here, although this should already be
         # done by the server (#8).
@@ -274,7 +282,8 @@ class WsgiDAVApp(object):
             if r == "/":
                 share = r
                 break
-            elif path.upper() == r.upper() or path.upper().startswith(r.upper() + "/"):
+            elif (path.upper() == r.upper()
+                    or path.upper().startswith(r.upper() + "/")):
                 share = r
                 break
 
@@ -294,7 +303,8 @@ class WsgiDAVApp(object):
         else:
             environ["SCRIPT_NAME"] += share
             environ["PATH_INFO"] = path[len(share):]
-#        util.log("--> SCRIPT_NAME='%s', PATH_INFO='%s'" % (environ.get("SCRIPT_NAME"), environ.get("PATH_INFO")))
+#        util.log("--> SCRIPT_NAME='%s', PATH_INFO='%s'" %
+#            (environ.get("SCRIPT_NAME"), environ.get("PATH_INFO")))
 
         # assert isinstance(path, str)
         assert compat.is_native(path)
@@ -326,18 +336,20 @@ class WsgiDAVApp(object):
             currentContentLength = headerDict.get("content-length")
             statusCode = int(status.split(" ", 1)[0])
             contentLengthRequired = (environ["REQUEST_METHOD"] != "HEAD"
-                                     and statusCode >= 200
-                                     and not statusCode in (204, 304))
-#            print(environ["REQUEST_METHOD"], statusCode, contentLengthRequired)
+                 and statusCode >= 200
+                 and statusCode not in (204, 304))
+#            print(environ["REQUEST_METHOD"], statusCode,
+#                 contentLengthRequired)
             if contentLengthRequired and currentContentLength in (None, ""):
-                # A typical case: a GET request on a virtual resource, for which
-                # the provider doesn't know the length
+                # A typical case: a GET request on a virtual resource, for
+                # which the provider doesn't know the length
                 util.warn(
-                    "Missing required Content-Length header in %s-response: closing connection" % statusCode)
+                    "Missing required Content-Length header in %s-response: "
+                    "closing connection" % statusCode)
                 forceCloseConnection = True
             elif not type(currentContentLength) is str:
-                util.warn("Invalid Content-Length header in response (%r): closing connection" %
-                          headerDict.get("content-length"))
+                util.warn("Invalid Content-Length header in response (%r): "
+                    "closing connection" % headerDict.get("content-length"))
                 forceCloseConnection = True
 
             # HOTFIX for Vista and Windows 7 (GC issue 13, issue 23)
@@ -357,7 +369,8 @@ class WsgiDAVApp(object):
                     "Input stream not completely consumed: closing connection")
                 forceCloseConnection = True
 
-            if forceCloseConnection and headerDict.get("connection") != "close":
+            if (forceCloseConnection
+                    and headerDict.get("connection") != "close"):
                 util.warn("Adding 'Connection: close' header")
                 response_headers.append(("Connection", "close"))
 
@@ -406,7 +419,7 @@ class WsgiDAVApp(object):
                     environ.get("PATH_INFO", ""),
                     extra,
                     status,
-                    #                                        response_headers.get(""), # response Content-Length
+                    # response_headers.get(""), # response Content-Length
                     # referer
                 ), file=sys.stdout)
 

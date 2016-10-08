@@ -1,4 +1,5 @@
-# (c) 2009-2016 Martin Wendt and contributors; see WsgiDAV https://github.com/mar10/wsgidav
+# (c) 2009-2016 Martin Wendt and contributors;
+# see WsgiDAV https://github.com/mar10/wsgidav
 # Original PyFileServer (c) 2005 Ho Chun Wei.
 # Licensed under the MIT license:
 # http://www.opensource.org/licenses/mit-license.php
@@ -31,21 +32,21 @@ __docformat__ = "reStructuredText"
 _logger = util.getModuleLogger(__name__)
 
 # TODO: comment's from Ian Bicking (2005)
-#@@: Use of shelve means this is only really useful in a threaded environment.
+# @: Use of shelve means this is only really useful in a threaded environment.
 #    And if you have just a single-process threaded environment, you could get
-#    nearly the same effect with a dictionary of threading.Lock() objects.  Of course,
-#    it would be better to move off shelve anyway, probably to a system with
-#    a directory of per-file locks, using the file locking primitives (which,
-#    sadly, are not quite portable).
+#    nearly the same effect with a dictionary of threading.Lock() objects.
+#    Of course, it would be better to move off shelve anyway, probably to a
+#    system with a directory of per-file locks, using the file locking
+#    primitives (which, sadly, are not quite portable).
 # @@: It would probably be easy to store the properties as pickle objects
 # in a parallel directory structure to the files you are describing.
 # Pickle is expedient, but later you could use something more readable
 # (pickles aren't particularly readable)
 
 
-#=========================================================================
+# =========================================================================
 # LockStorageDict
-#=========================================================================
+# =========================================================================
 class LockStorageDict(object):
     """
     An in-memory lock manager storage implementation using a dictionary.
@@ -134,7 +135,8 @@ class LockStorageDict(object):
         Returns:
             Lock dictionary or <None>
 
-        Side effect: if lock is expired, it will be purged and None is returned.
+        Side effect:
+            if lock is expired, it will be purged and None is returned.
         """
         self._lock.acquireRead()
         try:
@@ -202,7 +204,7 @@ class LockStorageDict(object):
 
             # Store locked path reference
             key = "URL2TOKEN:%s" % path
-            if not key in self._dict:
+            if key not in self._dict:
                 self._dict[key] = [token]
             else:
                 # Note: Shelve dictionary returns copies, so we must reassign
@@ -213,7 +215,8 @@ class LockStorageDict(object):
             self._flush()
             _logger.debug("LockStorageDict.set(%r): %s" %
                           (org_path, lockString(lock)))
-#            print("LockStorageDict.set(%r): %s" % (org_path, lockString(lock)))
+#            print("LockStorageDict.set(%r): %s" % (
+#                org_path, lockString(lock)))
             return lock
         finally:
             self._lock.release()
@@ -262,7 +265,8 @@ class LockStorageDict(object):
             # Remove url to lock mapping
             key = "URL2TOKEN:%s" % lock.get("root")
             if key in self._dict:
-                #                _logger.debug("    delete token %s from url %s" % (token, lock.get("root")))
+                # _logger.debug("    delete token %s from url %s" % (
+                #      token, lock.get("root")))
                 tokList = self._dict[key]
                 if len(tokList) > 1:
                     # Note: shelve dictionary returns copies, so we must
@@ -287,8 +291,8 @@ class LockStorageDict(object):
         path:
             Normalized path (utf8 encoded string, no trailing '/')
         includeRoot:
-            False: don't add <path> lock (only makes sense, when includeChildren
-            is True).
+            False: don't add <path> lock (only makes sense, when
+                includeChildren is True).
         includeChildren:
             True: Also check all sub-paths for existing locks.
         tokenOnly:
@@ -331,9 +335,9 @@ class LockStorageDict(object):
             self._lock.release()
 
 
-#=========================================================================
+# =========================================================================
 # LockStorageShelve
-#=========================================================================
+# =========================================================================
 
 class LockStorageShelve(LockStorageDict):
     """
@@ -377,7 +381,7 @@ class LockStorageShelve(LockStorageDict):
         # careful to re-assign values to _dict after modifying them
         self._dict = shelve.open(self._storagePath, writeback=False)
 #        if __debug__ and self._verbose >= 2:
-##                self._check("After shelve.open()")
+#                self._check("After shelve.open()")
 #            self._dump("After shelve.open()")
 
     def close(self):
@@ -391,14 +395,15 @@ class LockStorageShelve(LockStorageDict):
             self._lock.release()
 
 
-#=========================================================================
+# =========================================================================
 # test
-#=========================================================================
+# =========================================================================
 def test():
     #    l = ShelveLockManager("wsgidav-locks.shelve")
     #    l._lazyOpen()
     #    l._dump()
-    #    l.generateLock("martin", "", lockscope, lockdepth, lockowner, lockroot, timeout)
+    #    l.generateLock("martin", "", lockscope, lockdepth, lockowner,
+    #       lockroot, timeout)
     pass
 
 if __name__ == "__main__":

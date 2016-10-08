@@ -1,4 +1,5 @@
-# (c) 2009-2016 Martin Wendt and contributors; see WsgiDAV https://github.com/mar10/wsgidav
+# (c) 2009-2016 Martin Wendt and contributors;
+# see WsgiDAV https://github.com/mar10/wsgidav
 # Original PyFileServer (c) 2005 Ho Chun Wei.
 # Licensed under the MIT license:
 # http://www.opensource.org/licenses/mit-license.php
@@ -9,8 +10,8 @@ This module serves these purposes:
 
   1. Documentation of the DAVProvider interface
   2. Common base class for all DAV providers
-  3. Default implementation for most functionality that a resource provider must
-     deliver.
+  3. Default implementation for most functionality that a resource provider
+     must deliver.
 
 If no default implementation can be provided, then all write actions generate
 FORBIDDEN errors. Read requests generate NOT_IMPLEMENTED errors.
@@ -41,9 +42,9 @@ Usage::
 A DAV provider represents a shared WebDAV system.
 
 There is only one provider instance per share, which is created during
-server start-up. After that, the dispatcher (``request_resolver.RequestResolver``)
-parses the request URL and adds it to the WSGI environment, so it
-can be accessed like this::
+server start-up. After that, the dispatcher
+(``request_resolver.RequestResolver``) parses the request URL and adds it to
+the WSGI environment, so it can be accessed like this::
 
     provider = environ["wsgidav.provider"]
 
@@ -56,7 +57,8 @@ The main purpose of the provider is to create _DAVResource objects for URLs::
 The DAVProvider takes two supporting objects:
 
 propertyManager
-   An object that provides storage for dead properties assigned for webDAV resources.
+   An object that provides storage for dead properties assigned for webDAV
+   resources.
 
    PropertyManagers must provide the methods as described in
    ``wsgidav.interfaces.propertymanagerinterface``
@@ -83,7 +85,6 @@ import os
 import sys
 import time
 import traceback
-import urllib
 
 from wsgidav import compat
 from wsgidav import util
@@ -109,17 +110,17 @@ _standardLivePropNames = ["{DAV:}creationdate",
                           "{DAV:}getcontentlength",
                           "{DAV:}getetag",
                           "{DAV:}getcontentlanguage",
-                          #                          "{DAV:}source", # removed in rfc4918
+                          # "{DAV:}source", # removed in rfc4918
                           ]
 _lockPropertyNames = ["{DAV:}lockdiscovery",
                       "{DAV:}supportedlock"]
 
-#DAVHRES_Continue = "continue"
-#DAVHRES_Done = "done"
+# DAVHRES_Continue = "continue"
+# DAVHRES_Done = "done"
 
-#=========================================================================
+# =========================================================================
 # _DAVResource
-#=========================================================================
+# =========================================================================
 
 
 class _DAVResource(object):
@@ -149,8 +150,8 @@ class _DAVResource(object):
         res.isCollection
         res.environ
 
-    Querying other attributes is considered 'expensive' and may be delayed until
-    the first access.
+    Querying other attributes is considered 'expensive' and may be delayed
+    until the first access.
 
         getContentLength()
         getContentType()
@@ -183,8 +184,8 @@ class _DAVResource(object):
         return "%s(%r)" % (self.__class__.__name__, self.path)
 
 #    def getContentLanguage(self):
-#        """Contains the Content-Language header returned by a GET without accept
-#        headers.
+#        """Contains the Content-Language header returned by a GET without
+#           accept headers.
 #
 #        The getcontentlanguage property MUST be defined on any DAV compliant
 #        resource that returns the Content-Language header on a GET.
@@ -242,8 +243,8 @@ class _DAVResource(object):
         return None
 
     def getDisplayName(self):
-        """Provides a name for the resource that is suitable for presentation to
-        a user.
+        """Provides a name for the resource that is suitable for presentation
+        to a user.
 
         The displayname property should be defined on all DAV compliant
         resources. If present, the property contains a description of the
@@ -257,8 +258,8 @@ class _DAVResource(object):
     def getDisplayInfo(self):
         """Return additional info dictionary for displaying (optional).
 
-        This information is not part of the DAV specification, but meant for use
-        by the dir browser middleware.
+        This information is not part of the DAV specification, but meant for
+        use by the dir browser middleware.
 
         This default implementation returns ``{'type': '...'}``
         """
@@ -341,13 +342,14 @@ class _DAVResource(object):
             return self.path + "/"
         # TODO: handle case-sensitivity, depending on OS
         # (FileSystemProvider could do this with os.path:
-        # (?) on unix we can assume that the path already matches exactly the case of filepath
-        # on windows we could use path.lower() or get the real case from the
-        # file system
+        # (?) on unix we can assume that the path already matches exactly the
+        # case of filepath on windows we could use path.lower() or get the
+        # real case from the file system
         return self.path
 
     def getRefUrl(self):
-        """Return the quoted, absolute, unique URL of a resource, relative to appRoot.
+        """Return the quoted, absolute, unique URL of a resource, relative to
+        appRoot.
 
         Byte string, UTF-8 encoded, quoted.
         Starts with a '/'. Collections also have a trailing '/'.
@@ -369,8 +371,8 @@ class _DAVResource(object):
 #    def getRefKey(self):
 #        """Return an unambigous identifier string for a resource.
 #
-#        Since it is always unique for one resource, <refKey> is used as key for
-#        the lock- and property storage dictionaries.
+#        Since it is always unique for one resource, <refKey> is used as key
+#        for the lock- and property storage dictionaries.
 #
 #        This default implementation calls getRefUrl(), and strips a possible
 #        trailing '/'.
@@ -436,7 +438,8 @@ class _DAVResource(object):
 
         This default implementation calls self.getMemberList() recursively.
 
-        This function may also be called for non-collections (with addSelf=True).
+        This function may also be called for non-collections (with
+        addSelf=True).
 
         :Parameters:
             depthFirst : bool
@@ -454,14 +457,15 @@ class _DAVResource(object):
         if depth != "0" and self.isCollection:
             for child in self.getMemberList():
                 if not child:
-                    _ = self.getMemberList()
+                    self.getMemberList()
                 want = (collections and child.isCollection) or (
                     resources and not child.isCollection)
                 if want and not depthFirst:
                     res.append(child)
                 if child.isCollection and depth == "infinity":
                     res.extend(child.getDescendants(
-                        collections, resources, depthFirst, depth, addSelf=False))
+                        collections, resources, depthFirst, depth,
+                        addSelf=False))
                 if want and depthFirst:
                     res.append(child)
         if addSelf and depthFirst:
@@ -535,7 +539,8 @@ class _DAVResource(object):
             - None: if mode == 'propname'.
 
         @param mode: "allprop", "propname", or "named"
-        @param nameList: list of property names in Clark Notation (required for mode 'named')
+        @param nameList: list of property names in Clark Notation (required
+            for mode 'named')
 
         This default implementation basically calls self.getPropertyNames() to
         get the list of names, then call self.getPropertyValue on each of them.
@@ -630,7 +635,8 @@ class _DAVResource(object):
                 # TODO: this is ugly:
                 #       res.getPropertyValue("{DAV:}lockdiscovery")
                 #
-#                lockRoot = self.getHref(self.provider.refUrlToPath(lock["root"]))
+#                lockRoot = self.getHref(self.provider.refUrlToPath(
+#                    lock["root"]))
                 lockPath = self.provider.refUrlToPath(lock["root"])
                 lockRes = self.provider.getResourceInst(lockPath, self.environ)
                 # FIXME: test for None
@@ -643,7 +649,8 @@ class _DAVResource(object):
             return lockdiscoveryEL
 
         elif lm and propname == "{DAV:}supportedlock":
-            # TODO: we return HTTP_NOT_FOUND if no lockmanager is present. Correct?
+            # TODO: we return HTTP_NOT_FOUND if no lockmanager is present.
+            # Correct?
             # TODO: the lockmanager should decide about it's features
             supportedlockEL = etree.Element(propname)
 
@@ -663,10 +670,12 @@ class _DAVResource(object):
 
         elif propname.startswith("{DAV:}"):
             # Standard live property (raises HTTP_NOT_FOUND if not supported)
-            if propname == "{DAV:}creationdate" and self.getCreationDate() is not None:
+            if (propname == "{DAV:}creationdate"
+                    and self.getCreationDate() is not None):
                 # Note: uses RFC3339 format (ISO 8601)
                 return util.getRfc3339Time(self.getCreationDate())
-            elif propname == "{DAV:}getcontenttype" and self.getContentType() is not None:
+            elif (propname == "{DAV:}getcontenttype"
+                    and self.getContentType() is not None):
                 return self.getContentType()
             elif propname == "{DAV:}resourcetype":
                 if self.isCollection:
@@ -674,15 +683,18 @@ class _DAVResource(object):
                     etree.SubElement(resourcetypeEL, "{DAV:}collection")
                     return resourcetypeEL
                 return ""
-            elif propname == "{DAV:}getlastmodified" and self.getLastModified() is not None:
+            elif (propname == "{DAV:}getlastmodified"
+                    and self.getLastModified() is not None):
                 # Note: uses RFC1123 format
                 return util.getRfc1123Time(self.getLastModified())
-            elif propname == "{DAV:}getcontentlength" and self.getContentLength() is not None:
+            elif (propname == "{DAV:}getcontentlength"
+                    and self.getContentLength() is not None):
                 # Note: must be a numeric string
                 return str(self.getContentLength())
             elif propname == "{DAV:}getetag" and self.getEtag() is not None:
                 return self.getEtag()
-            elif propname == "{DAV:}displayname" and self.getDisplayName() is not None:
+            elif (propname == "{DAV:}displayname"
+                    and self.getDisplayName() is not None):
                 return self.getDisplayName()
 
             # Unsupported, no persistence available, or property not found
@@ -720,8 +732,8 @@ class _DAVResource(object):
 
         Note: RFC 4918 states that {DAV:}displayname 'SHOULD NOT be protected'
 
-        A resource provider may override this method, to update supported custom
-        live properties.
+        A resource provider may override this method, to update supported
+        custom live properties.
         """
         assert value is None or xml_tools.isEtreeElement(value)
 
@@ -863,8 +875,8 @@ class _DAVResource(object):
         processing:
 
         False:
-            handleDelete() did not do anything. WsgiDAV will process the request
-            by calling delete() for every resource, bottom-up.
+            handleDelete() did not do anything. WsgiDAV will process the
+            request by calling delete() for every resource, bottom-up.
         True:
             handleDelete() has successfully performed the DELETE request.
             HTTP_NO_CONTENT will be reported to the DAV client.
@@ -1045,7 +1057,7 @@ class _DAVResource(object):
         return False
 
     def supportRecursiveMove(self, destPath):
-        """Return True, if moveRecursive() is available (see comments there)."""
+        "Return True, if moveRecursive() is available (see comments there)."
         assert self.isCollection
         raise NotImplementedError()
 
@@ -1054,10 +1066,10 @@ class _DAVResource(object):
 
         This method is only called, when supportRecursiveMove() returns True.
 
-        MOVE is frequently used by clients to rename a file without changing its
-        parent collection, so it's not appropriate to reset all live properties
-        that are set at resource creation. For example, the DAV:creationdate
-        property value SHOULD remain the same after a MOVE.
+        MOVE is frequently used by clients to rename a file without changing
+        its parent collection, so it's not appropriate to reset all live
+        properties that are set at resource creation. For example, the
+        DAV:creationdate property value SHOULD remain the same after a MOVE.
 
         Preconditions (ensured by caller):
 
@@ -1112,9 +1124,9 @@ class _DAVResource(object):
         pass
 
 
-#=========================================================================
+# =========================================================================
 # DAVCollection
-#=========================================================================
+# =========================================================================
 class DAVNonCollection(_DAVResource):
     """
     A DAVNonCollection is a _DAVResource, that has content (like a 'file' on
@@ -1191,9 +1203,9 @@ class DAVNonCollection(_DAVResource):
         return None
 
 
-#=========================================================================
+# =========================================================================
 # DAVCollection
-#=========================================================================
+# =========================================================================
 class DAVCollection(_DAVResource):
     """
     A DAVCollection is a _DAVResource, that has members (like a 'folder' on
@@ -1212,7 +1224,8 @@ class DAVCollection(_DAVResource):
         # Allow caching of members
 #        self.memberCache = {"enabled": False,
 #                            "expire": 10,  # Purge, if not used for n seconds
-#                            "maxAge": 60,  # Force purge, if older than n seconds
+#                            # Force purge, if older than n seconds
+#                            "maxAge": 60,
 #                            "created": None,
 #                            "lastUsed": None,
 #                            "members": None,
@@ -1221,9 +1234,11 @@ class DAVCollection(_DAVResource):
 #    def _cacheSet(self, members):
 #        if self.memberCache["enabled"]:
 #            if not members:
-#                # We cannot cache None, because _cacheGet() == None means 'not in cache'
+#                # We cannot cache None, because _cacheGet() == None
+#                # means 'not in cache'
 #                members = []
-#            self.memberCache["created"] = self.memberCache["lastUsed"] = datetime.now()
+#            now = datetime.now()
+#            self.memberCache["created"] = self.memberCache["lastUsed"] = now
 #            self.memberCache["members"] = members
 #
 #    def _cacheGet(self):
@@ -1238,7 +1253,8 @@ class DAVCollection(_DAVResource):
 #        return self.memberCache["members"]
 #
 #    def _cachePurge(self):
-#        self.memberCache["created"] = self.memberCache["lastUsed"] = self.memberCache["members"] = None
+#        self.memberCache["created"] = self.memberCache["lastUsed"] = None
+#        self.memberCache["members"] = None
 
 #    def getContentLanguage(self):
 #        return None
@@ -1330,7 +1346,7 @@ class DAVCollection(_DAVResource):
         raise DAVError(HTTP_FORBIDDEN)
 
     def supportRecursiveMove(self, destPath):
-        """Return True, if moveRecursive() is available (see comments there)."""
+        "Return True, if moveRecursive() is available (see comments there)."
         return False
 
     def moveRecursive(self, destPath):
@@ -1355,9 +1371,9 @@ class DAVCollection(_DAVResource):
         return res.resolve(util.joinUri(scriptName, name), rest)
 
 
-#=========================================================================
+# =========================================================================
 # DAVProvider
-#=========================================================================
+# =========================================================================
 
 class DAVProvider(object):
     """Abstract base class for DAV resource providers.
@@ -1410,15 +1426,18 @@ class DAVProvider(object):
 
     def setPropManager(self, propManager):
         assert not propManager or hasattr(
-            propManager, "copyProperties"), "Must be compatible with wsgidav.property_manager.PropertyManager"
+            propManager, "copyProperties"), ("Must be compatible with "
+                "wsgidav.property_manager.PropertyManager")
         self.propManager = propManager
 
     def refUrlToPath(self, refUrl):
         """Convert a refUrl to a path, by stripping the share prefix.
 
-        Used to calculate the <path> from a storage key by inverting getRefUrl().
+        Used to calculate the <path> from a storage key by inverting
+        getRefUrl().
         """
-        return "/" + compat.unquote(util.lstripstr(refUrl, self.sharePath)).lstrip("/")
+        return "/" + compat.unquote(
+            util.lstripstr(refUrl, self.sharePath)).lstrip("/")
 
     def getResourceInst(self, path, environ):
         """Return a _DAVResource object for path.
